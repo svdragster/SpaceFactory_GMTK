@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://byjn8in8gaqi8"]
+[gd_scene load_steps=13 format=3 uid="uid://byjn8in8gaqi8"]
 
 [ext_resource type="Shader" path="res://shaders/terrestial_body.gdshader" id="1_fwpky"]
+[ext_resource type="Script" path="res://scenes/planet.gd" id="1_ls101"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_kn73j"]
 
@@ -70,6 +71,7 @@ radius = 0.55
 height = 1.1
 
 [node name="Planet" type="Node3D"]
+script = ExtResource("1_ls101")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_qb76d")

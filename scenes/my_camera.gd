@@ -67,17 +67,6 @@ func move_camera_with_keyboard(delta):
 		self.translate(translation_with_delta)
 
 func _input(event):
-	if event is InputEventMouseButton:
-		var camera_zoom_factor: float = calc_zoom_factor()
-		if event.is_pressed():
-			var zoom_factor = camera_zoom_factor * 1.5 + 0.3
-			if Input.is_action_pressed("cam_faster"):
-				zoom_factor *= 2
-			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-				zoom -= zoom_speed * zoom_factor
-			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-				zoom += zoom_speed * zoom_factor
-			zoom = clamp(zoom, min_zoom, max_zoom)
 	#if Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
 	#	return
 	if Input.is_action_pressed("cam_rotate"):
