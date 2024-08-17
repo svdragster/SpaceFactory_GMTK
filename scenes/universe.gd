@@ -31,6 +31,9 @@ func _process(delta: float) -> void:
 		space_objects_root.global_position = -target.global_position
 		target.on_select()
 		
+		%SpaceObjectUI.selected_space_object_type = target.space_type
+		%SpaceObjectUI.update_build_menu()
+		
 
 func calc_zoom_factor() -> float:
 	return pow(zoom, 1.2)

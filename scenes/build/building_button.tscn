@@ -6,7 +6,7 @@
 size = Vector2(100, 100)
 
 [sub_resource type="LabelSettings" id="LabelSettings_22kte"]
-font_size = 18
+font_size = 17
 
 [sub_resource type="LabelSettings" id="LabelSettings_qkbmp"]
 font_size = 14
@@ -18,7 +18,7 @@ font_color = Color(0.75, 0.75, 0.255, 1)
 
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(120, 175)
-offset_right = 285.0
+offset_right = 344.0
 offset_bottom = 175.0
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -26,8 +26,8 @@ script = ExtResource("1_j4c2d")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-offset_right = 214.0
-offset_bottom = 164.0
+offset_right = 346.0
+offset_bottom = 179.0
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -60,7 +60,6 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "BuildingName"
 label_settings = SubResource("LabelSettings_22kte")
-autowrap_mode = 2
 
 [node name="Desc" type="Label" parent="MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(165, 65)
@@ -73,10 +72,10 @@ autowrap_mode = 2
 
 [node name="Requirements" type="Label" parent="MarginContainer/VBoxContainer2"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(275, 60)
+custom_minimum_size = Vector2(275, 65)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Requires "
 label_settings = SubResource("LabelSettings_wski1")
-autowrap_mode = 3
+autowrap_mode = 2

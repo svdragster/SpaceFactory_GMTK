@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 BuildingsSingleton="*res://scenes/buildings_singleton.gd"
+SpaceUtil="*res://space_util.gd"
+Globals="*res://globals.gd"
 
 [input]
 

@@ -28,13 +28,17 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel" type="Panel" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 25)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="VBoxContainer/Panel"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Panel"]
 custom_minimum_size = Vector2(50, 10)
 layout_mode = 1
 anchors_preset = 8
@@ -53,13 +57,19 @@ label_settings = SubResource("LabelSettings_onsiq")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "X
+"
+
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 columns = 2
 
 [node name="VContainer" type="VBoxContainer" parent="VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 
@@ -92,3 +102,5 @@ size_flags_horizontal = 1
 [node name="Button3" parent="VBoxContainer/GridContainer/VContainer2" instance=ExtResource("2_18atb")]
 layout_mode = 2
 size_flags_horizontal = 1
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_close"]

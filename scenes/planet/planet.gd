@@ -4,11 +4,15 @@ extends Node3D
 var id: int = -1
 
 var light: OmniLight3D
+@export var space_type := "unknown"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("space_objects")
 	add_to_group("planets")
+	
+	rotate_x(randf_range(-0.6, 0.6))
+	rotate_z(randf_range(-0.6, 0.6))
 
 func on_select():
 	var sun = get_parent()
@@ -16,7 +20,8 @@ func on_select():
 		light.queue_free()
 	light = OmniLight3D.new()
 	light.position = global_position.direction_to(sun.global_position) * 5
-	light.omni_range = 100.0
+	light.omni_range = 20.0
+	light.light_energy = 10.0
 	add_child(light)
 
 func on_deselect():
@@ -26,4 +31,4 @@ func on_deselect():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	$MeshInstance3D.rotate_y(0.1 * delta * Globals.speed)

@@ -18,6 +18,7 @@ uniform bool noise_gaseous = false;
 uniform float noise_gaseous_speed : hint_range(0, 0.1) = 0.0025;
 uniform float noise_scale : hint_range(1, 10) = 1.0;
 uniform sampler2D noise : hint_default_black;
+uniform sampler2D noise_normal : hint_default_black;
 
 varying vec3 triplanar_power_normal;
 varying vec3 triplanar_pos;
@@ -78,4 +79,7 @@ void fragment() {
 	}
 	ALBEDO = color.rgb;
 	ROUGHNESS = roughness;
+	
+	vec4 normal = triplanar_texture(noise_normal, triplanar_power_normal, triplanar_pos_clone);
+	NORMAL_MAP = normal.rgb;
 }

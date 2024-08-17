@@ -2,6 +2,7 @@ class_name BlackHole
 extends Node3D
 
 var id: int = -1
+var space_type := "black_hole"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

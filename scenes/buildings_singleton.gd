@@ -67,6 +67,7 @@ static var mappings = {
 	"ore": "Ore",
 	"resources": "Resources",
 	"energy": "Energy",
+	"dark_matter": "Dark Matter",
 	"city": "City",
 	"mine": "Mine",
 	"factory": "Factory",

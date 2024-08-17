@@ -30,3 +30,7 @@ func _on_build(building_type: String) -> void:
 func update_button(building_type: String, amount: int) -> void:
 	var button: BuildingButton = buttons[building_type]
 	button.set_building_amount(amount)
+
+
+func _on_close() -> void:
+	get_parent().hide()

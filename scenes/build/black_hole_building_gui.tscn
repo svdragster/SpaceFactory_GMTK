@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://b770h2e1loeh"]
+
+[ext_resource type="PackedScene" uid="uid://c0bb6uxljugss" path="res://scenes/build/info_gui.tscn" id="1_ticva"]
+
+[node name="BlackHolePlanetBuildingGui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InfoGui" parent="." instance=ExtResource("1_ticva")]
+layout_mode = 1
+
+[node name="VBoxContainer" parent="InfoGui" index="0"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -191.5
+offset_right = 150.0
+offset_bottom = 191.5
+
+[node name="Button" parent="InfoGui/VBoxContainer/GridContainer/VContainer" index="0"]
+building_type = "dark_matter_collector"
+
+[node name="Name" parent="InfoGui/VBoxContainer/GridContainer/VContainer/Button/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer" index="0"]
+text = "City"
+
+[node name="Desc" parent="InfoGui/VBoxContainer/GridContainer/VContainer/Button/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer" index="1"]
+text = "Harvest Dark Matter to win the game"
+
+[node name="Button2" parent="InfoGui/VBoxContainer/GridContainer/VContainer" index="1"]
+visible = false
+building_type = "interstellar_travel"
+
+[node name="Desc" parent="InfoGui/VBoxContainer/GridContainer/VContainer/Button2/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer" index="1"]
+text = "Allows traveling to other stars in the galaxy"
+
+[node name="Button3" parent="InfoGui/VBoxContainer/GridContainer/VContainer" index="2"]
+visible = false
+
+[node name="Desc" parent="InfoGui/VBoxContainer/GridContainer/VContainer/Button3/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer" index="1"]
+text = "Allows rockets to travel to other planets"
+
+[editable path="InfoGui"]
+[editable path="InfoGui/VBoxContainer/GridContainer/VContainer/Button"]
+[editable path="InfoGui/VBoxContainer/GridContainer/VContainer/Button2"]
+[editable path="InfoGui/VBoxContainer/GridContainer/VContainer/Button3"]

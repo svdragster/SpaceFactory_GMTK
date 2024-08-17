@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://b6h7nni4ml57e"]
+
+[ext_resource type="Script" path="res://scenes/planet/planet.gd" id="1_jem4a"]
+[ext_resource type="Shader" path="res://shaders/body.gdshader" id="2_t7hpu"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_to1jl"]
+frequency = 0.0332
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5ffk6"]
+in_3d_space = true
+seamless = true
+noise = SubResource("FastNoiseLite_to1jl")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5ojr3"]
+frequency = 0.0332
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fviqt"]
+in_3d_space = true
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_5ojr3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gmuwq"]
+render_priority = 0
+shader = ExtResource("2_t7hpu")
+shader_parameter/emit = false
+shader_parameter/color_1 = Color(0.347556, 0.128924, 0.00815104, 1)
+shader_parameter/color_1_treshold = 0.385
+shader_parameter/color_1_roughness = 0.0
+shader_parameter/color_1_emit = false
+shader_parameter/color_2 = Color(0.327079, 0.258997, 0, 1)
+shader_parameter/color_2_treshold = 0.417
+shader_parameter/color_3 = Color(0.54398, 0.498202, 0.23537, 1)
+shader_parameter/color_3_treshold = 0.489
+shader_parameter/color_4 = Color(0.47, 0.316467, 0.00939999, 1)
+shader_parameter/color_4_treshold = 0.654
+shader_parameter/color_5 = Color(1, 0.603902, 0.50748, 1)
+shader_parameter/color_5_treshold = 1.0
+shader_parameter/noise_gaseous = false
+shader_parameter/noise_gaseous_speed = 0.0025
+shader_parameter/noise_scale = 1.0
+shader_parameter/noise = SubResource("NoiseTexture2D_5ffk6")
+shader_parameter/noise_normal = SubResource("NoiseTexture2D_fviqt")
+
+[sub_resource type="SphereMesh" id="SphereMesh_ybruo"]
+material = SubResource("ShaderMaterial_gmuwq")
+radius = 0.3
+height = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5hho"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.940963, 0.397885, 0.319835, 0.258824)
+disable_receive_shadows = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_ni3tf"]
+material = SubResource("StandardMaterial3D_d5hho")
+flip_faces = true
+radius = 0.35
+height = 0.7
+
+[node name="DesertPlanet" type="Node3D"]
+script = ExtResource("1_jem4a")
+space_type = "desert"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_ybruo")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_ni3tf")
