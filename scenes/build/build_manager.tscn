@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c8uwjvtj38y32"]
 
-[ext_resource type="Script" path="res://scenes/build_manager.gd" id="1_iaes2"]
+[ext_resource type="Script" path="res://scenes/build/build_manager.gd" id="1_iaes2"]
 
 [node name="BuildManager" type="Node3D"]
 script = ExtResource("1_iaes2")

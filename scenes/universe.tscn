@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmea0uyohtxap"]
+[gd_scene load_steps=9 format=3 uid="uid://cmea0uyohtxap"]
 
 [ext_resource type="PackedScene" uid="uid://dowq8sj2jigyj" path="res://scenes/my_camera.tscn" id="1_0ly52"]
 [ext_resource type="Script" path="res://scenes/universe.gd" id="1_hekgm"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cdklexx5nklgf" path="res://my_environment.tscn" id="3_q01wm"]
 [ext_resource type="PackedScene" uid="uid://c2ehw1i4jl3fb" path="res://scenes/sun.tscn" id="3_upvk8"]
 [ext_resource type="PackedScene" uid="uid://byjn8in8gaqi8" path="res://scenes/planet.tscn" id="4_fomw1"]
+[ext_resource type="PackedScene" uid="uid://cxcqat7ok6jtu" path="res://scenes/build/desert_planet_building_gui.tscn" id="7_1p5ii"]
+[ext_resource type="PackedScene" uid="uid://b43tj14o86p54" path="res://scenes/build/terrestial_planet_building_gui.tscn" id="8_v467m"]
 
 [node name="Universe" type="Node3D"]
 script = ExtResource("1_hekgm")
@@ -25,3 +27,32 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.76048, 0, 0)
 
 [node name="Planet" parent="ObjectsZoom/Objects/BlackHole/Sun" instance=ExtResource("4_fomw1")]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 1.34333)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpaceObjectUI" type="Control" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DesertPlanetBuildingGui" parent="UI/SpaceObjectUI" instance=ExtResource("7_1p5ii")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="TerrestialPlanetBuildingGui" parent="UI/SpaceObjectUI" instance=ExtResource("8_v467m")]
+visible = false
+layout_mode = 1

@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxcqat7ok6jtu"]
+
+[ext_resource type="PackedScene" uid="uid://c0bb6uxljugss" path="res://scenes/build/info_gui.tscn" id="1_fah2k"]
+
+[node name="DesertPlanetBuildingGui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InfoGui" parent="." instance=ExtResource("1_fah2k")]
+layout_mode = 1
+
+[node name="Button" parent="InfoGui/VBoxContainer/GridContainer/VContainer" index="0"]
+building_type = "space_station"
+
+[node name="Name" parent="InfoGui/VBoxContainer/GridContainer/VContainer/Button/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer" index="0"]
+text = "City"
+
+[node name="Desc" parent="InfoGui/VBoxContainer/GridContainer/VContainer/Button/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer" index="1"]
+text = "Allows placing buildings on this planet"
+
+[node name="Button2" parent="InfoGui/VBoxContainer/GridContainer/VContainer" index="1"]
+building_type = "mine"
+
+[node name="Desc" parent="InfoGui/VBoxContainer/GridContainer/VContainer/Button2/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer" index="1"]
+text = "Mines Ore to be later used in a Factory"
+
+[node name="Button3" parent="InfoGui/VBoxContainer/GridContainer/VContainer" index="2"]
+visible = false
+
+[node name="Desc" parent="InfoGui/VBoxContainer/GridContainer/VContainer/Button3/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer" index="1"]
+text = "Allows rockets to travel to other planets"
+
+[editable path="InfoGui"]
+[editable path="InfoGui/VBoxContainer/GridContainer/VContainer/Button"]
+[editable path="InfoGui/VBoxContainer/GridContainer/VContainer/Button2"]
+[editable path="InfoGui/VBoxContainer/GridContainer/VContainer/Button3"]

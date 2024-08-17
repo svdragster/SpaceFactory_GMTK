@@ -1,0 +1,94 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0bb6uxljugss"]
+
+[ext_resource type="Script" path="res://scenes/build/info_gui.gd" id="1_3bs8k"]
+[ext_resource type="PackedScene" uid="uid://cecwlol0eya1k" path="res://scenes/build/building_button.tscn" id="2_18atb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_onsiq"]
+font_size = 22
+
+[node name="InfoGui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_3bs8k")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.172743
+anchor_top = 0.066358
+anchor_right = 0.827257
+anchor_bottom = 0.933642
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel"]
+custom_minimum_size = Vector2(50, 10)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -15.5
+offset_right = 27.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Build"
+label_settings = SubResource("LabelSettings_onsiq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 2
+
+[node name="VContainer" type="VBoxContainer" parent="VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Button" parent="VBoxContainer/GridContainer/VContainer" instance=ExtResource("2_18atb")]
+layout_mode = 2
+size_flags_horizontal = 1
+
+[node name="Button2" parent="VBoxContainer/GridContainer/VContainer" instance=ExtResource("2_18atb")]
+layout_mode = 2
+size_flags_horizontal = 1
+
+[node name="Button3" parent="VBoxContainer/GridContainer/VContainer" instance=ExtResource("2_18atb")]
+layout_mode = 2
+size_flags_horizontal = 1
+
+[node name="VContainer2" type="VBoxContainer" parent="VBoxContainer/GridContainer"]
+visible = false
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Button" parent="VBoxContainer/GridContainer/VContainer2" instance=ExtResource("2_18atb")]
+layout_mode = 2
+size_flags_horizontal = 1
+
+[node name="Button2" parent="VBoxContainer/GridContainer/VContainer2" instance=ExtResource("2_18atb")]
+layout_mode = 2
+size_flags_horizontal = 1
+
+[node name="Button3" parent="VBoxContainer/GridContainer/VContainer2" instance=ExtResource("2_18atb")]
+layout_mode = 2
+size_flags_horizontal = 1

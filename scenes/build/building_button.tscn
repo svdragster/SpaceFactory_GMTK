@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=3 uid="uid://cecwlol0eya1k"]
+
+[ext_resource type="Script" path="res://scenes/build/building_button.gd" id="1_j4c2d"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_g51be"]
+size = Vector2(100, 100)
+
+[sub_resource type="LabelSettings" id="LabelSettings_22kte"]
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_qkbmp"]
+font_size = 14
+font_color = Color(0.67069, 0.67069, 0.67069, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wski1"]
+font_size = 14
+font_color = Color(0.75, 0.75, 0.255, 1)
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(120, 175)
+offset_right = 285.0
+offset_bottom = 175.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+script = ExtResource("1_j4c2d")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_right = 214.0
+offset_bottom = 164.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("PlaceholderTexture2D_g51be")
+stretch_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer2/HBoxContainer"]
+visibility_layer = 0
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "BuildingName"
+label_settings = SubResource("LabelSettings_22kte")
+autowrap_mode = 2
+
+[node name="Desc" type="Label" parent="MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(165, 65)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Description"
+label_settings = SubResource("LabelSettings_qkbmp")
+autowrap_mode = 2
+
+[node name="Requirements" type="Label" parent="MarginContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(275, 60)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Requires "
+label_settings = SubResource("LabelSettings_wski1")
+autowrap_mode = 3
