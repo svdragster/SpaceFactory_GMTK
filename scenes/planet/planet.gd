@@ -1,10 +1,11 @@
 class_name Planet
 extends Node3D
 
-var id: int = -1
+@export var space_type := "unknown"
+
+@onready var build_manager: BuildManager = $BuildManager
 
 var light: OmniLight3D
-@export var space_type := "unknown"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

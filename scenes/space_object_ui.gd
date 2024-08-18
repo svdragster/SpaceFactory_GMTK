@@ -1,6 +1,7 @@
 extends Control
 
-@export var selected_space_object_type: String = "terrestial"
+@export var selected_space_object: Node3D
+@export var player: Node
 var show_build_menu := false
 
 @onready var building_guis = {
@@ -10,13 +11,7 @@ var show_build_menu := false
 	"black_hole": %BlackHolePlanetBuildingGui,
 }
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
 	pass
 
 func _on_build_button_pressed() -> void:
@@ -34,8 +29,30 @@ func update_build_menu() -> void:
 	for v: Control in building_guis.values():
 		v.hide()
 	
+	var menu = building_guis[selected_space_object.space_type]
+	var info_gui: InfoGui = menu.get_node("InfoGui")
+	info_gui.on_build = on_build
+	
 	if show_build_menu:
-		building_guis[selected_space_object_type].show()
+		menu.show()
+
+func on_build(build_key: String) -> int:
+	var amount := 1
+	if Input.is_action_pressed("buy_multiple"):
+		amount = 10
+		
+	var result: Array[int] = player.get_node("PlayerBuildManager").on_build(build_key, selected_space_object, amount)
+	var new_building_amount: int = result[0]
+	var built_amount: int = result[1]
+	
+	if built_amount == 0:
+		# TODO: play sound that nothing was built
+		pass
+	else:
+		# TODO: play build sound
+		pass
+		
+	return new_building_amount
 	
 	
 	

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo0rnx7h2g7a6"]
+
+[ext_resource type="Script" path="res://scenes/quest/quests/quest_space_station.gd" id="1_gyenq"]
+
+[node name="QuestSpaceStation" type="Node"]
+script = ExtResource("1_gyenq")

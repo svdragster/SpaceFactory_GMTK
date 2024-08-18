@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc4g5l57dmkgr"]
+
+[ext_resource type="Script" path="res://scenes/build/player_build_manager.gd" id="1_sly0m"]
+
+[node name="PlayerBuildManager" type="Node"]
+script = ExtResource("1_sly0m")

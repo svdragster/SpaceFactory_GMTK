@@ -25,19 +25,19 @@ offset_right = 150.0
 offset_bottom = 191.5
 
 [node name="Button" parent="InfoGui/VBoxContainer/GridContainer/VContainer" index="0"]
-building_type = "dyson_sphere"
+building_type = "interstellar_travel"
 
 [node name="Name" parent="InfoGui/VBoxContainer/GridContainer/VContainer/Button/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer" index="0"]
 text = "City"
 
 [node name="Desc" parent="InfoGui/VBoxContainer/GridContainer/VContainer/Button/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer" index="1"]
-text = "Harvest energy from this star"
+text = "Allows traveling to other stars in the galaxy"
 
 [node name="Button2" parent="InfoGui/VBoxContainer/GridContainer/VContainer" index="1"]
-building_type = "interstellar_travel"
+building_type = "dyson_sphere"
 
 [node name="Desc" parent="InfoGui/VBoxContainer/GridContainer/VContainer/Button2/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer" index="1"]
-text = "Allows traveling to other stars in the galaxy"
+text = "Harvest energy from this star"
 
 [node name="Button3" parent="InfoGui/VBoxContainer/GridContainer/VContainer" index="2"]
 visible = false

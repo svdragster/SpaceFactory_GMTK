@@ -1,32 +1,43 @@
-[gd_scene load_steps=13 format=3 uid="uid://byjn8in8gaqi8"]
+[gd_scene load_steps=16 format=3 uid="uid://byjn8in8gaqi8"]
 
 [ext_resource type="Shader" path="res://shaders/terrestial_body.gdshader" id="1_fwpky"]
 [ext_resource type="Script" path="res://scenes/planet/planet.gd" id="1_ls101"]
+[ext_resource type="PackedScene" uid="uid://ds6bpobdl266m" path="res://scenes/planet/clickable_coins.tscn" id="2_rjacn"]
+[ext_resource type="Script" path="res://scenes/build/build_manager.gd" id="3_hxms8"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_kn73j"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5odt1"]
+seed = 1
+frequency = 0.002
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bsfyx"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ujmeh"]
+width = 1024
+height = 1024
 in_3d_space = true
 seamless = true
-noise = SubResource("FastNoiseLite_kn73j")
+noise = SubResource("FastNoiseLite_5odt1")
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_mdwsv"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_f5x1w"]
+seed = 1
+frequency = 0.002
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hvyyp"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mdaa7"]
+width = 1024
+height = 1024
 in_3d_space = true
 seamless = true
 as_normal_map = true
-noise = SubResource("FastNoiseLite_mdwsv")
+bump_strength = 17.6
+noise = SubResource("FastNoiseLite_f5x1w")
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_o2ppq"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_q11kl"]
 frequency = 0.0303
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_02uhl"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ntjt4"]
 seamless = true
 as_normal_map = true
-noise = SubResource("FastNoiseLite_o2ppq")
+noise = SubResource("FastNoiseLite_q11kl")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rb4er"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jyk2a"]
 render_priority = 0
 shader = ExtResource("1_fwpky")
 shader_parameter/emit = false
@@ -51,12 +62,12 @@ shader_parameter/noise_normal_depth = 10.0
 shader_parameter/water_speed = 0.004
 shader_parameter/noise_normal_depth_water = 0.6
 shader_parameter/ice_cap_size = 0.04
-shader_parameter/noise = SubResource("NoiseTexture2D_bsfyx")
-shader_parameter/noise_normal = SubResource("NoiseTexture2D_hvyyp")
-shader_parameter/water_noise_normal = SubResource("NoiseTexture2D_02uhl")
+shader_parameter/noise = SubResource("NoiseTexture2D_ujmeh")
+shader_parameter/noise_normal = SubResource("NoiseTexture2D_mdaa7")
+shader_parameter/water_noise_normal = SubResource("NoiseTexture2D_ntjt4")
 
-[sub_resource type="SphereMesh" id="SphereMesh_qb76d"]
-material = SubResource("ShaderMaterial_rb4er")
+[sub_resource type="SphereMesh" id="SphereMesh_c0tix"]
+material = SubResource("ShaderMaterial_jyk2a")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4qod"]
 transparency = 1
@@ -70,12 +81,47 @@ flip_faces = true
 radius = 0.55
 height = 1.1
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_8ehu6"]
+radius = 0.6
+
 [node name="TerrestialPlanet" type="Node3D"]
 script = ExtResource("1_ls101")
 space_type = "terrestial"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_qb76d")
+mesh = SubResource("SphereMesh_c0tix")
+
+[node name="ClickableCoins" parent="MeshInstance3D" instance=ExtResource("2_rjacn")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0.502898)
+
+[node name="ClickableCoins2" parent="MeshInstance3D" instance=ExtResource("2_rjacn")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0.389753, 0, 0.293424)
+
+[node name="ClickableCoins3" parent="MeshInstance3D" instance=ExtResource("2_rjacn")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0.336997, 0.21978, 0.256678)
+
+[node name="ClickableCoins4" parent="MeshInstance3D" instance=ExtResource("2_rjacn")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0.370814, 0.21978, -0.231678)
+
+[node name="ClickableCoins5" parent="MeshInstance3D" instance=ExtResource("2_rjacn")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -0.00850248, 0.486151, 0.0192793)
+
+[node name="ClickableCoins6" parent="MeshInstance3D" instance=ExtResource("2_rjacn")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -0.317795, 0.345781, -0.124139)
+
+[node name="ClickableCoins7" parent="MeshInstance3D" instance=ExtResource("2_rjacn")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -0.479826, -0.0724056, -0.0862254)
+
+[node name="ClickableCoins8" parent="MeshInstance3D" instance=ExtResource("2_rjacn")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -0.176246, -0.361074, 0.281458)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_nkygo")
+
+[node name="BuildManager" type="Node3D" parent="."]
+script = ExtResource("3_hxms8")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_8ehu6")

@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://m1o63052gmvf"]
+[gd_scene load_steps=4 format=3 uid="uid://m1o63052gmvf"]
 
 [ext_resource type="Script" path="res://scenes/capital/capital_entry.gd" id="1_f6c5o"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_24aqy"]
 size = Vector2(24, 24)
+
+[sub_resource type="LabelSettings" id="LabelSettings_o5cak"]
+line_spacing = 0.0
+font_size = 18
+outline_size = 4
 
 [node name="CapitalEntry" type="Control"]
 custom_minimum_size = Vector2(350, 27)
@@ -45,6 +50,16 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 text = "123"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+
+[node name="Diff" type="Label" parent="Panel/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "+"
+label_settings = SubResource("LabelSettings_o5cak")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

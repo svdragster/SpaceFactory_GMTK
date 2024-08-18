@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2ehw1i4jl3fb"]
+[gd_scene load_steps=11 format=3 uid="uid://c2ehw1i4jl3fb"]
 
 [ext_resource type="Script" path="res://scenes/sun.gd" id="1_e3vys"]
 [ext_resource type="Shader" path="res://shaders/body.gdshader" id="1_wmuj4"]
+[ext_resource type="Script" path="res://scenes/build/build_manager.gd" id="3_v3jxw"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6n8to"]
 noise_type = 2
@@ -48,6 +49,9 @@ flip_faces = true
 radius = 0.55
 height = 1.1
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_jmmdt"]
+radius = 0.65
+
 [node name="Sun" type="Node3D"]
 script = ExtResource("1_e3vys")
 
@@ -56,3 +60,11 @@ mesh = SubResource("SphereMesh_hjk3j")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_orl7a")
+
+[node name="BuildManager" type="Node3D" parent="."]
+script = ExtResource("3_v3jxw")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_jmmdt")

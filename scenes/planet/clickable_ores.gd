@@ -1,0 +1,2 @@
+class_name ClickableOres
+extends Area3D

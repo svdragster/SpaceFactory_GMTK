@@ -1,0 +1,2 @@
+class_name ClickableCoins
+extends Area3D

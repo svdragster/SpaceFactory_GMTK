@@ -20,7 +20,7 @@ building_type = "city"
 text = "City"
 
 [node name="Desc" parent="InfoGui/VBoxContainer/GridContainer/VContainer/Button/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer" index="1"]
-text = "Allows a higher population"
+text = "Allows a higher population which also pay some taxes"
 
 [node name="Button2" parent="InfoGui/VBoxContainer/GridContainer/VContainer" index="1"]
 building_type = "factory"

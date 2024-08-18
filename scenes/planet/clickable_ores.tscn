@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfgw77cmpdkho"]
+
+[ext_resource type="Script" path="res://scenes/planet/clickable_ores.gd" id="1_jbmb7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_oyc1f"]
+radius = 0.15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ggsur"]
+shading_mode = 0
+albedo_color = Color(0.780639, 0.583969, 0.484399, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_i2vqa"]
+material = SubResource("StandardMaterial3D_ggsur")
+radius = 0.1
+height = 0.2
+
+[node name="ClickableOres" type="Area3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_jbmb7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_oyc1f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_i2vqa")

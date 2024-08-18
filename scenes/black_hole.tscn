@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cs2ml6fv4sx38"]
+[gd_scene load_steps=11 format=3 uid="uid://cs2ml6fv4sx38"]
 
 [ext_resource type="Script" path="res://scenes/black_hole.gd" id="1_k2mqj"]
 [ext_resource type="Shader" path="res://shaders/body.gdshader" id="1_xgnsf"]
+[ext_resource type="Script" path="res://scenes/build/build_manager.gd" id="3_3trb4"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_qkrqu"]
 noise_type = 2
@@ -34,6 +35,7 @@ shader_parameter/noise_scale = 2.187
 shader_parameter/noise = SubResource("NoiseTexture2D_im72w")
 
 [sub_resource type="SphereMesh" id="SphereMesh_m0x5n"]
+lightmap_size_hint = Vector2i(17, 9)
 material = SubResource("ShaderMaterial_ihet7")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wx4xx"]
@@ -48,6 +50,9 @@ flip_faces = true
 radius = 0.55
 height = 1.1
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_tvi76"]
+radius = 0.65
+
 [node name="BlackHole" type="Node3D"]
 script = ExtResource("1_k2mqj")
 
@@ -56,3 +61,11 @@ mesh = SubResource("SphereMesh_m0x5n")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_ln4h7")
+
+[node name="BuildManager" type="Node3D" parent="."]
+script = ExtResource("3_3trb4")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_tvi76")
