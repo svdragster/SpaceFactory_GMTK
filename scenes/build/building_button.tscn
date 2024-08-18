@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cecwlol0eya1k"]
+[gd_scene load_steps=7 format=3 uid="uid://cecwlol0eya1k"]
 
 [ext_resource type="Script" path="res://scenes/build/building_button.gd" id="1_j4c2d"]
 
@@ -14,7 +14,10 @@ font_color = Color(0.67069, 0.67069, 0.67069, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wski1"]
 font_size = 14
-font_color = Color(0.75, 0.75, 0.255, 1)
+font_color = Color(0.617588, 0.617332, 0.194816, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6w2tp"]
+bg_color = Color(0.13, 0.13, 0.13, 0.866667)
 
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(120, 175)
@@ -79,3 +82,11 @@ size_flags_vertical = 0
 text = "Requires "
 label_settings = SubResource("LabelSettings_wski1")
 autowrap_mode = 2
+
+[node name="Disabled" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_right = 349.0
+offset_bottom = 180.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6w2tp")

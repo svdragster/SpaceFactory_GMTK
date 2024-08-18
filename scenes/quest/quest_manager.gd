@@ -2,7 +2,6 @@ class_name QuestManager
 extends Node
 
 @export var player: Node
-@export var capital: Capital
 @export var quest_ui: QuestUI
 
 var current_quest: Node
@@ -10,6 +9,10 @@ var current_quest: Node
 var quest_scenes = {
 	"QuestCity": preload("res://scenes/quest/quests/quest_city.tscn"),
 	"QuestSpaceStation": preload("res://scenes/quest/quests/quest_space_station.tscn"),
+	"QuestOre": preload("res://scenes/quest/quests/quest_ore.tscn"),
+	"QuestFactory": preload("res://scenes/quest/quests/quest_factory.tscn"),
+	"QuestDysonSphere": preload("res://scenes/quest/quests/quest_dyson_sphere.tscn"),
+	"QuestInterstellar": preload("res://scenes/quest/quests/quest_interstellar.tscn")
 }
 
 func _ready() -> void:

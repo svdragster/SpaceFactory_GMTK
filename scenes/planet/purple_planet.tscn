@@ -1,8 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://83slgv48438y"]
+[gd_scene load_steps=16 format=3 uid="uid://83slgv48438y"]
 
 [ext_resource type="Script" path="res://scenes/planet/planet.gd" id="1_k231a"]
 [ext_resource type="Shader" path="res://shaders/body.gdshader" id="2_8u1gc"]
 [ext_resource type="Script" path="res://scenes/build/build_manager.gd" id="3_1g63t"]
+[ext_resource type="PackedScene" uid="uid://bfgw77cmpdkho" path="res://scenes/planet/clickable_ores.tscn" id="3_fcbkn"]
+[ext_resource type="PackedScene" uid="uid://ds6bpobdl266m" path="res://scenes/planet/clickable_coins.tscn" id="4_d7252"]
+[ext_resource type="Texture2D" uid="uid://b8n76tntmo4k2" path="res://assets/aim.png" id="4_rlk14"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_krtul"]
 noise_type = 2
@@ -66,11 +69,51 @@ height = 1.7
 radius = 1.0
 
 [node name="PurplePlanet" type="Node3D"]
+physics_interpolation_mode = 1
 script = ExtResource("1_k231a")
 space_type = "desert"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_15djm")
+
+[node name="ClickableOres" parent="MeshInstance3D" instance=ExtResource("3_fcbkn")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, -0.744369)
+
+[node name="ClickableOres2" parent="MeshInstance3D" instance=ExtResource("3_fcbkn")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.603995, 0.178343, -0.388151)
+
+[node name="ClickableOres3" parent="MeshInstance3D" instance=ExtResource("3_fcbkn")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.668533, 0.178343, 0.265299)
+
+[node name="ClickableOres4" parent="MeshInstance3D" instance=ExtResource("3_fcbkn")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.0538491, 0.325738, 0.668665)
+
+[node name="ClickableOres5" parent="MeshInstance3D" instance=ExtResource("3_fcbkn")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.328571, -0.200586, 0.640121)
+
+[node name="ClickableOres6" parent="MeshInstance3D" instance=ExtResource("3_fcbkn")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.704833, -0.200586, 0.116195)
+
+[node name="ClickableOres7" parent="MeshInstance3D" instance=ExtResource("3_fcbkn")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.504296, 0.532936, 0.116195)
+
+[node name="ClickableOres8" parent="MeshInstance3D" instance=ExtResource("3_fcbkn")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.471643, 0.29516, -0.48304)
+
+[node name="ClickableCoins" parent="MeshInstance3D" instance=ExtResource("4_d7252")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.676627, 0, -0.312353)
+
+[node name="ClickableCoins2" parent="MeshInstance3D" instance=ExtResource("4_d7252")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.509346, 0.435366, -0.312353)
+
+[node name="ClickableCoins3" parent="MeshInstance3D" instance=ExtResource("4_d7252")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.34828, 0.593454, -0.312353)
+
+[node name="ClickableCoins4" parent="MeshInstance3D" instance=ExtResource("4_d7252")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.34828, -0.619709, 0.215984)
+
+[node name="ClickableCoins5" parent="MeshInstance3D" instance=ExtResource("4_d7252")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.326956, -0.0892546, 0.65492)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_56xke")
@@ -81,4 +124,12 @@ script = ExtResource("3_1g63t")
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+unique_name_in_owner = true
 shape = SubResource("SphereShape3D_yubiw")
+
+[node name="Aim" type="Sprite3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+billboard = 1
+no_depth_test = true
+texture = ExtResource("4_rlk14")

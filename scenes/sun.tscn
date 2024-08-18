@@ -1,8 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2ehw1i4jl3fb"]
+[gd_scene load_steps=14 format=3 uid="uid://c2ehw1i4jl3fb"]
 
 [ext_resource type="Script" path="res://scenes/sun.gd" id="1_e3vys"]
 [ext_resource type="Shader" path="res://shaders/body.gdshader" id="1_wmuj4"]
 [ext_resource type="Script" path="res://scenes/build/build_manager.gd" id="3_v3jxw"]
+[ext_resource type="Texture2D" uid="uid://b8n76tntmo4k2" path="res://assets/aim.png" id="4_180x8"]
+[ext_resource type="Texture2D" uid="uid://bmlox3jl2arqa" path="res://assets/star.png" id="5_istie"]
+[ext_resource type="PackedScene" uid="uid://du6erab885aww" path="res://scenes/capital/capital.tscn" id="6_uaujn"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6n8to"]
 noise_type = 2
@@ -50,15 +53,16 @@ radius = 0.55
 height = 1.1
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jmmdt"]
-radius = 0.65
+radius = 0.4
 
 [node name="Sun" type="Node3D"]
 script = ExtResource("1_e3vys")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Body" type="MeshInstance3D" parent="."]
+physics_interpolation_mode = 1
 mesh = SubResource("SphereMesh_hjk3j")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="Atmosphere" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_orl7a")
 
 [node name="BuildManager" type="Node3D" parent="."]
@@ -67,4 +71,26 @@ script = ExtResource("3_v3jxw")
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+unique_name_in_owner = true
 shape = SubResource("SphereShape3D_jmmdt")
+
+[node name="Aim" type="Sprite3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+billboard = 1
+no_depth_test = true
+texture = ExtResource("4_180x8")
+
+[node name="FakeStar" type="Sprite3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+billboard = 1
+texture = ExtResource("5_istie")
+
+[node name="Capital" parent="." instance=ExtResource("6_uaujn")]
+unique_name_in_owner = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 40.0
+omni_range = 2000.0
+omni_attenuation = 0.466

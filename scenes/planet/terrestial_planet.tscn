@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://byjn8in8gaqi8"]
+[gd_scene load_steps=17 format=3 uid="uid://byjn8in8gaqi8"]
 
 [ext_resource type="Shader" path="res://shaders/terrestial_body.gdshader" id="1_fwpky"]
 [ext_resource type="Script" path="res://scenes/planet/planet.gd" id="1_ls101"]
 [ext_resource type="PackedScene" uid="uid://ds6bpobdl266m" path="res://scenes/planet/clickable_coins.tscn" id="2_rjacn"]
 [ext_resource type="Script" path="res://scenes/build/build_manager.gd" id="3_hxms8"]
+[ext_resource type="Texture2D" uid="uid://b8n76tntmo4k2" path="res://assets/aim.png" id="5_271k4"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_5odt1"]
 seed = 1
@@ -85,6 +86,7 @@ height = 1.1
 radius = 0.6
 
 [node name="TerrestialPlanet" type="Node3D"]
+physics_interpolation_mode = 1
 script = ExtResource("1_ls101")
 space_type = "terrestial"
 
@@ -124,4 +126,12 @@ script = ExtResource("3_hxms8")
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+unique_name_in_owner = true
 shape = SubResource("SphereShape3D_8ehu6")
+
+[node name="Aim" type="Sprite3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+billboard = 1
+no_depth_test = true
+texture = ExtResource("5_271k4")

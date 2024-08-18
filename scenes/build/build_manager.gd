@@ -33,3 +33,7 @@ func update_capital(capital: Capital):
 				var generated_amount = BuildingsSingleton.production[building_type][generated_capital_type]
 				capital.capital[generated_capital_type] += generated_amount * amount
 	
+
+func calculate_cost_factor(building_type: String) -> float:
+	var amount: int = buildings.get(building_type, 0)
+	return (amount * 0.005) + 1.0

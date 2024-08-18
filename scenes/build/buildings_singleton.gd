@@ -8,17 +8,18 @@ static var all_buildings = {
 		"coins": 1000,
 	},
 	"factory": {
-		"coins": 5_000,
+		"coins": 4_000,
 		"population": 5_000,
 		"ore": 100,
 	},
 	"space_station": {
 		"coins": 1_500,
-		"population": 1_000,
+		"population": 2_000,
 	},
 	"dyson_sphere": {
-		"coins": 1_000_000,
-		"resources": 1_000_000,
+		"coins": 250_000,
+		"resources": 15_000,
+		"population": 50_000,
 	},
 	"interstellar_travel": {
 		"coins": 100_000,
@@ -34,7 +35,7 @@ static var all_buildings = {
 static var production = {
 	"city": {
 		"population": 12.0,
-		"coins": 2.0,
+		"coins": 5.0,
 	},
 	"mine": {
 		"ore": 1.0,
@@ -43,7 +44,7 @@ static var production = {
 	"factory": {
 		"ore": -5.0,
 		"resources": 1.0,
-		"coins": 2.0,
+		"coins": 10.0,
 		"population": -6.0,
 	},
 	"space_station": {

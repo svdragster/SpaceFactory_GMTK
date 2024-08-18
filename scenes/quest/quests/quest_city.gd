@@ -17,7 +17,7 @@ func dispose():
 func update():
 	pass
 
-func _on_built_event_listener(player: Node, building_type: String, amount: int) -> void:
+func _on_built_event_listener(player: Node, space_object: Node3D, building_type: String, amount: int) -> void:
 	if done:
 		return
 	if building_type == "city":

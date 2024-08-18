@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://s1cudwqfi4jl"]
+
+[ext_resource type="Script" path="res://scenes/quest/quests/quest_ore.gd" id="1_hcmsi"]
+
+[node name="QuestOre" type="Node"]
+script = ExtResource("1_hcmsi")

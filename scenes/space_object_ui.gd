@@ -37,9 +37,7 @@ func update_build_menu() -> void:
 		menu.show()
 
 func on_build(build_key: String) -> int:
-	var amount := 1
-	if Input.is_action_pressed("buy_multiple"):
-		amount = 10
+	var amount := Globals.buy_factor
 		
 	var result: Array[int] = player.get_node("PlayerBuildManager").on_build(build_key, selected_space_object, amount)
 	var new_building_amount: int = result[0]

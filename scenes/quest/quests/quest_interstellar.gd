@@ -1,11 +1,11 @@
-class_name QuestSpaceStation
+class_name QuestInterstellar
 extends Node
 
 @export var player: Node
 @export var quest_manager: QuestManager
 
-var quest_name = "Enter the Orbit"
-var quest_desc = "After growing your population, build a Space Station to reach other planets."
+var quest_name = "Go Interstellar"
+var quest_desc = "Follow the steps of Christopher and Jonathan Nolan and unlock interstellar travel."
 var done := false
 
 func start():
@@ -20,9 +20,7 @@ func update():
 func _on_built_event_listener(player: Node, space_object: Node3D, building_type: String, amount: int) -> void:
 	if done:
 		return
-	if building_type == "space_station":
+	if building_type == "interstellar_travel":
 		done = true
-		get_node("/root/Universe").zoom = 40
-		get_node("/root/Universe").interplanetary = true
-		quest_manager.start_quest("QuestOre")
+		#quest_manager.start_quest("QuestDarkMatter")
 		

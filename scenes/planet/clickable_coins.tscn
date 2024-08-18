@@ -1,13 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds6bpobdl266m"]
+[gd_scene load_steps=8 format=3 uid="uid://ds6bpobdl266m"]
 
 [ext_resource type="Script" path="res://scenes/planet/clickable_coins.gd" id="1_aq6vw"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_oyc1f"]
 radius = 0.15
 
+[sub_resource type="Gradient" id="Gradient_bl4j1"]
+colors = PackedColorArray(0.462291, 0.462291, 0.462291, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1uwyg"]
+noise_type = 2
+frequency = 0.1258
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tenrb"]
+width = 128
+height = 128
+in_3d_space = true
+seamless = true
+color_ramp = SubResource("Gradient_bl4j1")
+noise = SubResource("FastNoiseLite_1uwyg")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7chnj"]
 shading_mode = 0
 albedo_color = Color(1, 0.807843, 0, 1)
+albedo_texture = SubResource("NoiseTexture2D_tenrb")
 
 [sub_resource type="SphereMesh" id="SphereMesh_8o8as"]
 material = SubResource("StandardMaterial3D_7chnj")

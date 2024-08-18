@@ -1,13 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfgw77cmpdkho"]
+[gd_scene load_steps=8 format=3 uid="uid://bfgw77cmpdkho"]
 
 [ext_resource type="Script" path="res://scenes/planet/clickable_ores.gd" id="1_jbmb7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_oyc1f"]
 radius = 0.15
 
+[sub_resource type="Gradient" id="Gradient_wp8li"]
+colors = PackedColorArray(0.489622, 0.489622, 0.489622, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jr25w"]
+frequency = 0.1474
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1rbvb"]
+width = 128
+height = 128
+in_3d_space = true
+seamless = true
+color_ramp = SubResource("Gradient_wp8li")
+noise = SubResource("FastNoiseLite_jr25w")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ggsur"]
 shading_mode = 0
 albedo_color = Color(0.780639, 0.583969, 0.484399, 1)
+albedo_texture = SubResource("NoiseTexture2D_1rbvb")
 
 [sub_resource type="SphereMesh" id="SphereMesh_i2vqa"]
 material = SubResource("StandardMaterial3D_ggsur")

@@ -31,7 +31,7 @@ building_type = "interstellar_travel"
 text = "City"
 
 [node name="Desc" parent="InfoGui/VBoxContainer/GridContainer/VContainer/Button/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer" index="1"]
-text = "Allows traveling to other stars in the galaxy"
+text = "Allows travelling to other stars in the galaxy"
 
 [node name="Button2" parent="InfoGui/VBoxContainer/GridContainer/VContainer" index="1"]
 building_type = "dyson_sphere"

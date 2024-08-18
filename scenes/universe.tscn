@@ -11,12 +11,12 @@
 [ext_resource type="Script" path="res://scenes/space_object_ui.gd" id="7_7ripd"]
 [ext_resource type="PackedScene" uid="uid://b43tj14o86p54" path="res://scenes/build/terrestial_planet_building_gui.tscn" id="8_v467m"]
 [ext_resource type="PackedScene" uid="uid://ccqwylgpq5738" path="res://scenes/capital/capital_ui.tscn" id="9_qp22c"]
-[ext_resource type="PackedScene" uid="uid://du6erab885aww" path="res://scenes/capital/capital.tscn" id="10_2h6ng"]
 [ext_resource type="PackedScene" uid="uid://s5clp8u2etjp" path="res://scenes/build/sun_building_gui.tscn" id="10_07h0l"]
 [ext_resource type="PackedScene" uid="uid://b770h2e1loeh" path="res://scenes/build/black_hole_building_gui.tscn" id="11_fj2w0"]
 [ext_resource type="PackedScene" uid="uid://blb258kp6u7xe" path="res://scenes/quest/quest_ui.tscn" id="14_7iumb"]
 [ext_resource type="PackedScene" uid="uid://cc4g5l57dmkgr" path="res://scenes/build/player_build_manager.tscn" id="15_kt4dx"]
 [ext_resource type="PackedScene" uid="uid://cm4kc05e8n3c5" path="res://scenes/quest/QuestManager.tscn" id="16_ggiom"]
+[ext_resource type="PackedScene" uid="uid://bnrrs3gvq7khm" path="res://scenes/speed_ui.tscn" id="16_yvu4i"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_d8hb0"]
 size = Vector2(32, 32)
@@ -33,16 +33,18 @@ script = ExtResource("1_hekgm")
 [node name="Objects" type="Node3D" parent="ObjectsZoom"]
 
 [node name="BlackHole" parent="ObjectsZoom/Objects" instance=ExtResource("1_ya0al")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 
-[node name="Sun" parent="ObjectsZoom/Objects/BlackHole" instance=ExtResource("3_upvk8")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.76048, 0, 0)
+[node name="StartSun" parent="ObjectsZoom/Objects/BlackHole" instance=ExtResource("3_upvk8")]
+unique_name_in_owner = true
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -2.29472, 0, 0)
 
-[node name="Planet" parent="ObjectsZoom/Objects/BlackHole/Sun" instance=ExtResource("4_fomw1")]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 1.34333)
+[node name="StartPlanet" parent="ObjectsZoom/Objects/BlackHole/StartSun" instance=ExtResource("4_fomw1")]
+unique_name_in_owner = true
+transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0, 1.34333)
 
-[node name="DesertPlanet" parent="ObjectsZoom/Objects/BlackHole/Sun" instance=ExtResource("6_43jkt")]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.127091, 0, 1.29505)
+[node name="DesertPlanet" parent="ObjectsZoom/Objects/BlackHole/StartSun" instance=ExtResource("6_43jkt")]
+transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0.127091, 0, 1.29505)
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -91,40 +93,47 @@ layout_mode = 1
 [node name="Button" type="Button" parent="UI/SpaceObjectUI"]
 custom_minimum_size = Vector2(110, 60)
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = -66.0
-offset_right = 117.0
-offset_bottom = -6.0
+offset_left = -55.0
+offset_top = -60.0
+offset_right = 55.0
+grow_horizontal = 2
 grow_vertical = 0
 tooltip_text = "Opens the build menu"
 text = "Build"
 icon = SubResource("PlaceholderTexture2D_d8hb0")
 
-[node name="CapitalUI" parent="UI" node_paths=PackedStringArray("capital") instance=ExtResource("9_qp22c")]
+[node name="CapitalUI" parent="UI" node_paths=PackedStringArray("universe") instance=ExtResource("9_qp22c")]
 unique_name_in_owner = true
 layout_mode = 1
-capital = NodePath("../../PlayerData/Player1/Capital")
+universe = NodePath("../..")
 
 [node name="QuestUI" parent="UI" instance=ExtResource("14_7iumb")]
 layout_mode = 1
+
+[node name="SpeedUI" parent="UI" instance=ExtResource("16_yvu4i")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+grow_horizontal = 1
+grow_vertical = 0
 
 [node name="PlayerData" type="Node" parent="."]
 unique_name_in_owner = true
 
 [node name="Player1" type="Node" parent="PlayerData"]
 
-[node name="Capital" parent="PlayerData/Player1" instance=ExtResource("10_2h6ng")]
-
-[node name="PlayerBuildManager" parent="PlayerData/Player1" node_paths=PackedStringArray("player", "capital") instance=ExtResource("15_kt4dx")]
+[node name="PlayerBuildManager" parent="PlayerData/Player1" node_paths=PackedStringArray("player", "universe") instance=ExtResource("15_kt4dx")]
 player = NodePath("..")
-capital = NodePath("../Capital")
+universe = NodePath("../../..")
 
-[node name="QuestManager" parent="PlayerData/Player1" node_paths=PackedStringArray("player", "capital", "quest_ui") instance=ExtResource("16_ggiom")]
+[node name="QuestManager" parent="PlayerData/Player1" node_paths=PackedStringArray("player", "quest_ui") instance=ExtResource("16_ggiom")]
 player = NodePath("..")
-capital = NodePath("../Capital")
 quest_ui = NodePath("../../../UI/QuestUI")
 
 [connection signal="pressed" from="UI/SpaceObjectUI/Button" to="UI/SpaceObjectUI" method="_on_build_button_pressed"]

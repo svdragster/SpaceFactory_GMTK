@@ -1,21 +1,19 @@
 class_name CapitalEntry
 extends Control
 
-@export var capital: Capital
+@export var universe: Universe
 @export var capital_key: String
-
-var last_amount: int = 0
 
 func _ready() -> void:
 	%Name.text = BuildingsSingleton.mappings[capital_key]
 	%Diff.label_settings = %Diff.label_settings.duplicate(true)
-	Globals.on_built_event.connect(func(u, v, z): update())
+	Globals.on_built_event.connect(func(p, u, v, w): update())
 
 
 func update() -> void:
+	var capital: Capital = universe.get_active_capital()
 	var amount := int(capital.capital[capital_key])
-	var diff = amount - last_amount
-	last_amount = amount
+	var diff = capital.capital_diff[capital_key]
 	if abs(diff) <= 0.1:
 		%Diff.text = ""
 	elif diff > 0.0:

@@ -1,0 +1,4 @@
+[gd_resource type="Theme" format=3 uid="uid://bvj8qc8jy3x4e"]
+
+[resource]
+Button/colors/font_outline_color = Color(0.0606061, 0.429557, 0.687636, 1)
