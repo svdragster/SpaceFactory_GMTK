@@ -5,7 +5,7 @@ extends Node
 @export var quest_manager: QuestManager
 
 var quest_name = "Transcend Science"
-var quest_desc = "Reach 1,000,000 Dark Matter to win the game!"
+var quest_desc = "Reach 100,000 Dark Matter to win the game!"
 var done := false
 
 func start():
@@ -17,8 +17,9 @@ func dispose():
 func update():
 	if not done:
 		var capital: Capital = get_node("/root/Universe").get_active_capital()
-		if capital.capital["dark_matter"] >= 1_000_000:
+		if capital.capital["dark_matter"] >= 100_000:
 			done = true
+			print("WIN!")
 			# TODO win screen
 
 func _process(delta: float) -> void:

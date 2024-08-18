@@ -3,7 +3,7 @@ extends Node3D
 
 @onready var build_manager: BuildManager = $BuildManager
 
-@onready var capital: Capital = %Capital
+@export var capital: Capital
 
 var space_type := "black_hole"
 
@@ -24,6 +24,7 @@ func on_select():
 			if c is Planet:
 				c.set_process(false)
 				c.hide()
+				c.remove_collision()
 	
 func on_deselect():
 	pass

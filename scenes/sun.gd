@@ -5,7 +5,7 @@ var _scaling_factor := Vector3(0.25, 0.25, 0.25)
 
 var space_type := "sun"
 
-@onready var capital: Capital = %Capital
+@export var capital: Capital
 @onready var build_manager: BuildManager = $BuildManager
 @onready var _default_collision_radius: float = %CollisionShape3D.shape.radius
 @onready var _universe: Universe = get_node("/root/Universe")

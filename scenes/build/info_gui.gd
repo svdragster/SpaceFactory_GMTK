@@ -14,6 +14,7 @@ func _ready() -> void:
 	%One.add_theme_color_override("font_outline_color", Color.BLUE)
 	%Ten.add_theme_color_override("font_outline_color", Color.BLUE)
 	%Hundred.add_theme_color_override("font_outline_color", Color.BLUE)
+	%Thousand.add_theme_color_override("font_outline_color", Color.BLUE)
 	
 	Globals.on_object_select_event.connect(
 		func(player, space_object): 
@@ -34,14 +35,22 @@ func _process(delta: float) -> void:
 			%One.add_theme_constant_override("outline_size", 6)
 			%Ten.add_theme_constant_override("outline_size", 0)
 			%Hundred.add_theme_constant_override("outline_size", 0)
+			%Thousand.add_theme_constant_override("outline_size", 0)
 		elif Globals.buy_factor == 10:
 			%One.add_theme_constant_override("outline_size", 0)
 			%Ten.add_theme_constant_override("outline_size", 6)
 			%Hundred.add_theme_constant_override("outline_size", 0)
+			%Thousand.add_theme_constant_override("outline_size", 0)
 		elif Globals.buy_factor == 100:
 			%One.add_theme_constant_override("outline_size", 0)
 			%Ten.add_theme_constant_override("outline_size", 0)
 			%Hundred.add_theme_constant_override("outline_size", 6)
+			%Thousand.add_theme_constant_override("outline_size", 0)
+		elif Globals.buy_factor == 1000:
+			%One.add_theme_constant_override("outline_size", 0)
+			%Ten.add_theme_constant_override("outline_size", 0)
+			%Hundred.add_theme_constant_override("outline_size", 0)
+			%Thousand.add_theme_constant_override("outline_size", 6)
 
 func _register_buttons_recursively(node: Control):
 	if node is BuildingButton:
@@ -124,6 +133,8 @@ func _on_ten_pressed() -> void:
 func _on_hundred_pressed() -> void:
 	Globals.buy_factor = 100
 
+func _on_thousand_pressed() -> void:
+	Globals.buy_factor = 1000
 
 func _on_timer_timeout() -> void:
 	if is_instance_valid(space_parent):

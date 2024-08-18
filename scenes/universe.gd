@@ -18,10 +18,12 @@ var interstellar := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	target = %StartPlanet
-	get_active_capital().owned_space_objects.append(%StartPlanet)
 	
 	for sun in get_tree().get_nodes_in_group("suns"):
+		sun.capital = $PlayerData/Player1/Capital
 		sun.on_deselect()
+		
+	get_active_capital().owned_space_objects.append(%StartPlanet)
 	
 	%StartSun.on_select()
 	%StartSun.on_deselect()
@@ -58,7 +60,6 @@ func handle_click_space_objects():
 	query.collision_mask = 1
 
 	var result: Dictionary = space_state.intersect_ray(query)
-	print(result)
 	if result.size() > 0:
 		var collider = result["collider"]
 		var collider_parent = collider.get_parent()
@@ -154,7 +155,6 @@ func _input(event):
 				min_zoom_tmp = 400
 			elif not interstellar:
 				min_zoom_tmp = 0.5
-			min_zoom_tmp = 0.001
 			zoom = clamp(zoom, min_zoom_tmp, max_zoom)
 			
 
@@ -167,11 +167,12 @@ func get_current_sun() -> Sun:
 	return null
 
 func get_active_capital() -> Capital:
-	if target is BlackHole:
-		return target.capital
-	if target is Sun:
-		return target.capital
-	var parent = target.get_parent()
-	if parent is Sun:
-		return parent.capital
-	return null
+	return get_node("PlayerData/Player1/Capital")
+	#if target is BlackHole:
+	#	return target.capital
+	#if target is Sun:
+	#	return target.capital
+	#var parent = target.get_parent()
+	#if parent is Sun:
+	#	return parent.capital
+	#return null

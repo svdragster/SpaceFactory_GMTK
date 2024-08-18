@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cs2ml6fv4sx38"]
+[gd_scene load_steps=11 format=3 uid="uid://cs2ml6fv4sx38"]
 
 [ext_resource type="Script" path="res://scenes/black_hole.gd" id="1_k2mqj"]
 [ext_resource type="Shader" path="res://shaders/body.gdshader" id="1_xgnsf"]
 [ext_resource type="Script" path="res://scenes/build/build_manager.gd" id="3_3trb4"]
-[ext_resource type="PackedScene" uid="uid://du6erab885aww" path="res://scenes/capital/capital.tscn" id="4_30gm1"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_qkrqu"]
 noise_type = 2
@@ -69,6 +68,3 @@ script = ExtResource("3_3trb4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_tvi76")
-
-[node name="Capital" parent="." instance=ExtResource("4_30gm1")]
-unique_name_in_owner = true

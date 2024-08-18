@@ -66,8 +66,8 @@ func _process(delta: float) -> void:
 		if has_node("Area3D/CollisionShape3D"):
 			var c: CollisionShape3D = get_node("Area3D/CollisionShape3D")
 			c.shape.radius = 50.0 / _scale.x
-			if c.shape.radius < 0.05:
-				c.shape.radius = 0.05
+			if c.shape.radius < _default_collision_radius:
+				c.shape.radius = _default_collision_radius
 		
 	if _universe.zoom < 2.0:
 		%Aim.modulate.a = _universe.zoom/2.0

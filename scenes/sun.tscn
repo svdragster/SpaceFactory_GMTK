@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://c2ehw1i4jl3fb"]
+[gd_scene load_steps=13 format=3 uid="uid://c2ehw1i4jl3fb"]
 
 [ext_resource type="Script" path="res://scenes/sun.gd" id="1_e3vys"]
 [ext_resource type="Shader" path="res://shaders/body.gdshader" id="1_wmuj4"]
 [ext_resource type="Script" path="res://scenes/build/build_manager.gd" id="3_v3jxw"]
 [ext_resource type="Texture2D" uid="uid://b8n76tntmo4k2" path="res://assets/aim.png" id="4_180x8"]
 [ext_resource type="Texture2D" uid="uid://bmlox3jl2arqa" path="res://assets/star.png" id="5_istie"]
-[ext_resource type="PackedScene" uid="uid://du6erab885aww" path="res://scenes/capital/capital.tscn" id="6_uaujn"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6n8to"]
 noise_type = 2
@@ -86,9 +85,6 @@ unique_name_in_owner = true
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 billboard = 1
 texture = ExtResource("5_istie")
-
-[node name="Capital" parent="." instance=ExtResource("6_uaujn")]
-unique_name_in_owner = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_energy = 40.0

@@ -17,9 +17,9 @@ static var all_buildings = {
 		"population": 2_000,
 	},
 	"dyson_sphere": {
-		"coins": 250_000,
+		"coins": 150_000,
 		"resources": 15_000,
-		"population": 50_000,
+		"population": 100_000,
 	},
 	"interstellar_travel": {
 		"coins": 100_000,
@@ -27,24 +27,24 @@ static var all_buildings = {
 		"energy": 100_000,
 	},
 	"dark_matter_collector": {
-		"coins": 1_000_000_000,
-		"energy": 1_000_000_000,
+		"coins": 100_000_000,
+		"energy": 200_000,
 	}
 }
 
 static var production = {
 	"city": {
 		"population": 12.0,
-		"coins": 5.0,
+		"coins": 3.0,
 	},
 	"mine": {
-		"ore": 1.0,
+		"ore": 2.0,
 		"population": -1.0,
 	},
 	"factory": {
 		"ore": -5.0,
 		"resources": 1.0,
-		"coins": 10.0,
+		"coins": 100.0,
 		"population": -6.0,
 	},
 	"space_station": {
@@ -53,7 +53,7 @@ static var production = {
 	},
 	"dyson_sphere": {
 		"energy": 1.0,
-		"coins": -500.0,
+		"coins": -1000.0,
 	},
 	"interstellar_travel": {
 		"energy": -0.5,
