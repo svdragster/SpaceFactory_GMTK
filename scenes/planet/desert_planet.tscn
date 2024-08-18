@@ -66,35 +66,36 @@ height = 0.7
 radius = 0.4
 
 [node name="DesertPlanet" type="Node3D"]
-physics_interpolation_mode = 1
 script = ExtResource("1_jem4a")
 space_type = "desert"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_ybruo")
 
-[node name="ClickableOres" parent="MeshInstance3D" instance=ExtResource("3_mhvls")]
+[node name="Clickables" type="Node3D" parent="MeshInstance3D"]
+
+[node name="ClickableOres" parent="MeshInstance3D/Clickables" instance=ExtResource("3_mhvls")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, -0.289207)
 
-[node name="ClickableOres2" parent="MeshInstance3D" instance=ExtResource("3_mhvls")]
+[node name="ClickableOres2" parent="MeshInstance3D/Clickables" instance=ExtResource("3_mhvls")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.242435, 0.121916, -0.089945)
 
-[node name="ClickableOres3" parent="MeshInstance3D" instance=ExtResource("3_mhvls")]
+[node name="ClickableOres3" parent="MeshInstance3D/Clickables" instance=ExtResource("3_mhvls")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.0774406, 0.272665, -0.0449521)
 
-[node name="ClickableOres4" parent="MeshInstance3D" instance=ExtResource("3_mhvls")]
+[node name="ClickableOres4" parent="MeshInstance3D/Clickables" instance=ExtResource("3_mhvls")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.0774406, 0.124952, -0.237766)
 
-[node name="ClickableOres5" parent="MeshInstance3D" instance=ExtResource("3_mhvls")]
+[node name="ClickableOres5" parent="MeshInstance3D/Clickables" instance=ExtResource("3_mhvls")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.0774406, 0.124952, 0.242736)
 
-[node name="ClickableOres6" parent="MeshInstance3D" instance=ExtResource("3_mhvls")]
+[node name="ClickableOres6" parent="MeshInstance3D/Clickables" instance=ExtResource("3_mhvls")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.101773, -0.0556065, 0.257162)
 
-[node name="ClickableOres8" parent="MeshInstance3D" instance=ExtResource("3_mhvls")]
+[node name="ClickableOres8" parent="MeshInstance3D/Clickables" instance=ExtResource("3_mhvls")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.278924, 0.0489335, 0.0118849)
 
-[node name="ClickableOres7" parent="MeshInstance3D" instance=ExtResource("3_mhvls")]
+[node name="ClickableOres7" parent="MeshInstance3D/Clickables" instance=ExtResource("3_mhvls")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.138002, -0.228047, 0.111672)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
@@ -113,5 +114,4 @@ shape = SubResource("SphereShape3D_njt1f")
 unique_name_in_owner = true
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 billboard = 1
-no_depth_test = true
 texture = ExtResource("5_1d47e")

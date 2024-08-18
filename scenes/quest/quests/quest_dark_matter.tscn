@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8g13rm4a2jgp"]
+
+[ext_resource type="Script" path="res://scenes/quest/quests/quest_dark_matter.gd" id="1_ggrgc"]
+
+[node name="QuestDarkMatter" type="Node"]
+script = ExtResource("1_ggrgc")

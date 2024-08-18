@@ -22,6 +22,7 @@
 size = Vector2(32, 32)
 
 [node name="Universe" type="Node3D"]
+physics_interpolation_mode = 2
 script = ExtResource("1_hekgm")
 
 [node name="MyCamera" parent="." instance=ExtResource("1_0ly52")]
@@ -45,6 +46,45 @@ transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0, 1.34333)
 
 [node name="DesertPlanet" parent="ObjectsZoom/Objects/BlackHole/StartSun" instance=ExtResource("6_43jkt")]
 transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0.127091, 0, 1.29505)
+
+[node name="Sun2" parent="ObjectsZoom/Objects/BlackHole" instance=ExtResource("3_upvk8")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.00609131, 0, 3.681)
+
+[node name="Sun3" parent="ObjectsZoom/Objects/BlackHole" instance=ExtResource("3_upvk8")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 4.2982, 0, 0.0556778)
+
+[node name="Sun4" parent="ObjectsZoom/Objects/BlackHole" instance=ExtResource("3_upvk8")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.017503, 0, -6.10338)
+
+[node name="Sun5" parent="ObjectsZoom/Objects/BlackHole" instance=ExtResource("3_upvk8")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 4.19305, 0, -5.20453)
+
+[node name="Sun6" parent="ObjectsZoom/Objects/BlackHole" instance=ExtResource("3_upvk8")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -4.57355, 0, -4.65267)
+
+[node name="Sun7" parent="ObjectsZoom/Objects/BlackHole" instance=ExtResource("3_upvk8")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -3.60628, 0, 2.67893)
+
+[node name="Sun8" parent="ObjectsZoom/Objects/BlackHole" instance=ExtResource("3_upvk8")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2.18704, 1.50891, 1.78088)
+
+[node name="Sun9" parent="ObjectsZoom/Objects/BlackHole" instance=ExtResource("3_upvk8")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.76535, -1.23561, 2.36895)
+
+[node name="Sun10" parent="ObjectsZoom/Objects/BlackHole" instance=ExtResource("3_upvk8")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -8.00811, 0.905172, -0.394721)
+
+[node name="Sun11" parent="ObjectsZoom/Objects/BlackHole" instance=ExtResource("3_upvk8")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2.92291, 2.04749, -2.53411)
+
+[node name="Sun12" parent="ObjectsZoom/Objects/BlackHole" instance=ExtResource("3_upvk8")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.89903, -2.87256, -4.00685)
+
+[node name="Sun13" parent="ObjectsZoom/Objects/BlackHole" instance=ExtResource("3_upvk8")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -2.72536, 2.08307, 5.00432)
+
+[node name="Sun14" parent="ObjectsZoom/Objects/BlackHole" instance=ExtResource("3_upvk8")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -4.87102, 3.22, -0.394721)
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3

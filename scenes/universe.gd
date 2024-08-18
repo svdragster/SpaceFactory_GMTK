@@ -25,6 +25,10 @@ func _ready() -> void:
 	
 	%StartSun.on_select()
 	%StartSun.on_deselect()
+	for p in %StartSun.get_children():
+		if p is Planet:
+			p.create_collision()
+			
 	select_object(%StartPlanet)
 
 
@@ -48,12 +52,13 @@ func handle_click_space_objects():
 	var mousepos: Vector2 = get_viewport().get_mouse_position()
 
 	var origin: Vector3 = camera.project_ray_origin(mousepos)
-	var end: Vector3 = origin + camera.project_ray_normal(mousepos) * 10000
+	var end: Vector3 = origin + camera.project_ray_normal(mousepos) * 100_000
 	var query = PhysicsRayQueryParameters3D.create(origin, end)
 	query.collide_with_areas = true
 	query.collision_mask = 1
 
 	var result: Dictionary = space_state.intersect_ray(query)
+	print(result)
 	if result.size() > 0:
 		var collider = result["collider"]
 		var collider_parent = collider.get_parent()
@@ -68,6 +73,8 @@ func handle_click_space_objects():
 			if collider_parent is Planet:
 				if collider_parent.get_parent() == get_current_sun():
 					select_object(collider_parent)
+				elif interstellar:
+					select_object(collider_parent.get_parent())
 			elif collider_parent is Sun:
 				if interstellar:
 					select_object(collider_parent)
@@ -123,7 +130,9 @@ func focus_target():
 	space_objects_root.global_position = Vector3.ZERO
 	space_objects_root.global_position = -target.global_position
 	
-	get_current_sun()._rotate = zoom < 20
+	var sun = get_current_sun()
+	if is_instance_valid(sun):
+		sun._rotate = zoom < 20
 
 func calc_zoom_factor() -> float:
 	return pow(zoom, 1.2)
@@ -145,6 +154,7 @@ func _input(event):
 				min_zoom_tmp = 400
 			elif not interstellar:
 				min_zoom_tmp = 0.5
+			min_zoom_tmp = 0.001
 			zoom = clamp(zoom, min_zoom_tmp, max_zoom)
 			
 

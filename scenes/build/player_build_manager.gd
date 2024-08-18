@@ -8,9 +8,10 @@ func on_build(building_type: String, space_object: Node3D, amount_requested: int
 	var capital: Capital = universe.get_active_capital()
 	
 	# Object must be owned by player or have a space station in order to build new buildings
-	if not space_object in capital.owned_space_objects:
-		if building_type != "space_station":
-			return [0, 0]
+	if space_object is Planet:
+		if not space_object in capital.owned_space_objects:
+			if building_type != "space_station":
+				return [0, 0]
 			
 	
 	var costs: Dictionary = BuildingsSingleton.all_buildings[building_type]
@@ -25,9 +26,13 @@ func on_build(building_type: String, space_object: Node3D, amount_requested: int
 			return [1, 0]
 	
 	if building_type == "interstellar_travel":
-		amount_requested = 1
-		if new_building_amount > 0:
-			return [1, 0]
+		if universe.interstellar:
+			# Only needed once per universe
+			amount_requested = 0
+		else:
+			amount_requested = 1
+			if new_building_amount > 0:
+				return [1, 0]
 	
 	for i in range(amount_requested):
 		

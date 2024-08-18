@@ -57,7 +57,8 @@ cheat_coins={
 
 [physics]
 
-common/physics_interpolation=true
+common/physics_ticks_per_second=30
+common/max_physics_steps_per_frame=2
 
 [rendering]
 

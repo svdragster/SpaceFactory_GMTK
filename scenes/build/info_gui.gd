@@ -96,6 +96,9 @@ func update_all_buttons(space_object: Node3D) -> void:
 					button.set_enabled_state(false)
 				else:
 					button.set_enabled_state(true)
+	else:
+		for button: BuildingButton in buttons.values():
+			button.set_enabled_state(true)
 					
 
 func _on_close() -> void:

@@ -1,7 +1,7 @@
 class_name Sun
 extends Node3D
 
-var _scaling_factor := Vector3(7.0, 7.0, 7.0)
+var _scaling_factor := Vector3(0.25, 0.25, 0.25)
 
 var space_type := "sun"
 
@@ -64,6 +64,7 @@ func on_select():
 		if c is Planet:
 			c.set_process(true)
 			c.show()
+			c.create_collision()
 	
 	$Body.show()
 	$Atmosphere.show()
@@ -89,6 +90,7 @@ func on_deselect():
 				if c is Planet:
 					c.set_process(false)
 					c.hide()
+					c.remove_collision()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -100,7 +102,10 @@ func _physics_process(delta: float) -> void:
 		rotate_y(0.005 * delta * Globals.speed)
 		$OmniLight3D.hide()
 	else:
-		$OmniLight3D.show()
+		if get_node("/root/Universe").get_current_sun() == self:
+			$OmniLight3D.show()
+		else:
+			$OmniLight3D.hide()
 		
 
 func _process(delta: float) -> void:

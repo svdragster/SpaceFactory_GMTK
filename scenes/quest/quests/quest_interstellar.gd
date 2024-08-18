@@ -22,5 +22,12 @@ func _on_built_event_listener(player: Node, space_object: Node3D, building_type:
 		return
 	if building_type == "interstellar_travel":
 		done = true
-		#quest_manager.start_quest("QuestDarkMatter")
+		get_node("/root/Universe").zoom = 0.2
+		get_node("/root/Universe").interstellar = true
+		
+		for sun in get_tree().get_nodes_in_group("suns"):
+			if sun != self:
+				sun.get_node("Aim").show()
+		
+		quest_manager.start_quest("QuestDarkMatter")
 		

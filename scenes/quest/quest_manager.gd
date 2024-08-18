@@ -12,7 +12,8 @@ var quest_scenes = {
 	"QuestOre": preload("res://scenes/quest/quests/quest_ore.tscn"),
 	"QuestFactory": preload("res://scenes/quest/quests/quest_factory.tscn"),
 	"QuestDysonSphere": preload("res://scenes/quest/quests/quest_dyson_sphere.tscn"),
-	"QuestInterstellar": preload("res://scenes/quest/quests/quest_interstellar.tscn")
+	"QuestInterstellar": preload("res://scenes/quest/quests/quest_interstellar.tscn"),
+	"QuestDarkMatter": preload("res://scenes/quest/quests/quest_dark_matter.tscn"),
 }
 
 func _ready() -> void:

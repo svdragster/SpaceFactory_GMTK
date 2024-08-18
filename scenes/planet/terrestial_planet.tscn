@@ -86,35 +86,36 @@ height = 1.1
 radius = 0.6
 
 [node name="TerrestialPlanet" type="Node3D"]
-physics_interpolation_mode = 1
 script = ExtResource("1_ls101")
 space_type = "terrestial"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_c0tix")
 
-[node name="ClickableCoins" parent="MeshInstance3D" instance=ExtResource("2_rjacn")]
+[node name="Clickables" type="Node3D" parent="MeshInstance3D"]
+
+[node name="ClickableCoins" parent="MeshInstance3D/Clickables" instance=ExtResource("2_rjacn")]
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0.502898)
 
-[node name="ClickableCoins2" parent="MeshInstance3D" instance=ExtResource("2_rjacn")]
+[node name="ClickableCoins2" parent="MeshInstance3D/Clickables" instance=ExtResource("2_rjacn")]
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0.389753, 0, 0.293424)
 
-[node name="ClickableCoins3" parent="MeshInstance3D" instance=ExtResource("2_rjacn")]
+[node name="ClickableCoins3" parent="MeshInstance3D/Clickables" instance=ExtResource("2_rjacn")]
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0.336997, 0.21978, 0.256678)
 
-[node name="ClickableCoins4" parent="MeshInstance3D" instance=ExtResource("2_rjacn")]
+[node name="ClickableCoins4" parent="MeshInstance3D/Clickables" instance=ExtResource("2_rjacn")]
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0.370814, 0.21978, -0.231678)
 
-[node name="ClickableCoins5" parent="MeshInstance3D" instance=ExtResource("2_rjacn")]
+[node name="ClickableCoins5" parent="MeshInstance3D/Clickables" instance=ExtResource("2_rjacn")]
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -0.00850248, 0.486151, 0.0192793)
 
-[node name="ClickableCoins6" parent="MeshInstance3D" instance=ExtResource("2_rjacn")]
+[node name="ClickableCoins6" parent="MeshInstance3D/Clickables" instance=ExtResource("2_rjacn")]
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -0.317795, 0.345781, -0.124139)
 
-[node name="ClickableCoins7" parent="MeshInstance3D" instance=ExtResource("2_rjacn")]
+[node name="ClickableCoins7" parent="MeshInstance3D/Clickables" instance=ExtResource("2_rjacn")]
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -0.479826, -0.0724056, -0.0862254)
 
-[node name="ClickableCoins8" parent="MeshInstance3D" instance=ExtResource("2_rjacn")]
+[node name="ClickableCoins8" parent="MeshInstance3D/Clickables" instance=ExtResource("2_rjacn")]
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -0.176246, -0.361074, 0.281458)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
@@ -133,5 +134,4 @@ shape = SubResource("SphereShape3D_8ehu6")
 unique_name_in_owner = true
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 billboard = 1
-no_depth_test = true
 texture = ExtResource("5_271k4")
