@@ -49,7 +49,7 @@ expand_mode = 2
 stretch_mode = 0
 
 [node name="Desc" parent="InfoGui/VBoxContainer/GridContainer/VContainer/Button2/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer" index="1"]
-text = "Harvest energy from this star"
+text = "Harvest energy from this star. Requires constant supply of resources."
 
 [node name="Button3" parent="InfoGui/VBoxContainer/GridContainer/VContainer" index="2"]
 visible = false

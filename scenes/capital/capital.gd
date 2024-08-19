@@ -5,7 +5,7 @@ var owned_space_objects: Array[Node3D] = []
 
 var capital = {
 	"coins": 3000.0,
-	"population": 0.0,
+	"population": 100.0,
 	"ore": 0.0,
 	"resources": 0.0,
 	"energy": 0.0,
@@ -54,3 +54,4 @@ func _on_timer_timeout() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("cheat_coins"):
 		capital["coins"] += 5000
+		capital["dark_matter"] += 5000

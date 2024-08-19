@@ -57,7 +57,7 @@ func _ready() -> void:
 	
 	%Aim.scale = Vector3(10, 10, 10)
 	
-	for i in range(randi_range(8, 16)):
+	for i in range(randi_range(9, 17)):
 		var planet_scene := preload("res://scenes/planet/terrestial_planet.tscn")
 		_spawn_planet(planet_scene, 1.4, 1.8)
 		

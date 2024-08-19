@@ -184,7 +184,7 @@ func focus_target():
 		sun._rotate = zoom < 20
 
 func calc_zoom_factor() -> float:
-	return pow(zoom, 1.2)
+	return pow(zoom, 1.25)
 
 func _input(event):
 	if paused:
