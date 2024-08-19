@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://b55g4mc5v8je5"]
+
+[ext_resource type="AudioStream" uid="uid://cwkqiwy4ntbv7" path="res://assets/music/Supernatural.ogg" id="1_ofeua"]
+[ext_resource type="Script" path="res://scenes/music.gd" id="1_ybi6n"]
+[ext_resource type="AudioStream" uid="uid://b3sjqgfqfytcr" path="res://assets/music/Crypto.ogg" id="2_be2g4"]
+[ext_resource type="AudioStream" uid="uid://cragjjsrk4gqt" path="res://assets/music/Oppressive Gloom.ogg" id="2_bi83w"]
+[ext_resource type="AudioStream" uid="uid://buk78yg6ubgq0" path="res://assets/sounds/Coins in Sack Dropped on Soft Surface.ogg" id="5_t1jpy"]
+[ext_resource type="AudioStream" uid="uid://fx3nn74xxlng" path="res://assets/sounds/Error.ogg" id="6_5v8wn"]
+[ext_resource type="AudioStream" uid="uid://ce1vynw8exhxi" path="res://assets/sounds/FUI Button Beep Clean.ogg" id="7_rpc8i"]
+[ext_resource type="AudioStream" uid="uid://cjedpnobfexii" path="res://assets/sounds/win.ogg" id="8_w1olo"]
+[ext_resource type="AudioStream" uid="uid://cl8humg6fc2we" path="res://assets/sounds/UI Message Appear 01.ogg" id="9_n5yhc"]
+
+[node name="Music" type="Node"]
+script = ExtResource("1_ybi6n")
+
+[node name="Start" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("1_ofeua")
+volume_db = -10.0
+bus = &"Music"
+
+[node name="Game1" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_be2g4")
+volume_db = -10.0
+bus = &"Music"
+
+[node name="Game2" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_bi83w")
+volume_db = -10.0
+bus = &"Music"
+
+[node name="Buy" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_t1jpy")
+volume_db = -17.0
+max_polyphony = 5
+bus = &"SoundEffects"
+
+[node name="Error" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_5v8wn")
+volume_db = -8.0
+bus = &"SoundEffects"
+
+[node name="Button" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_rpc8i")
+max_polyphony = 6
+bus = &"SoundEffects"
+
+[node name="Win" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("8_w1olo")
+bus = &"SoundEffects"
+
+[node name="Attention" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("9_n5yhc")
+bus = &"SoundEffects"
+
+[connection signal="finished" from="Start" to="." method="_on_start_finished"]
+[connection signal="finished" from="Game1" to="." method="_on_game_1_finished"]
+[connection signal="finished" from="Game2" to="." method="_on_game_2_finished"]

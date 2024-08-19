@@ -5,6 +5,8 @@ extends Control
 @export var capital_key: String
 @export var icon: Texture2D
 
+var should_be_active := false
+
 func _ready() -> void:
 	%Icon.texture = icon
 	%Name.text = BuildingsSingleton.mappings[capital_key]
@@ -15,26 +17,32 @@ func _ready() -> void:
 func update() -> void:
 	var capital: Capital = universe.get_active_capital()
 	var amount := int(capital.capital[capital_key])
-	var diff = capital.capital_diff[capital_key]
-	if abs(diff) <= 0.1:
-		%Diff.text = ""
-	elif diff > 0.0:
-		%Diff.text = "+"
-		if diff > 1000:
-			%Diff.text = "+ + +"
-		elif diff > 200:
-			%Diff.text = "+ +"
-		%Diff.label_settings.outline_color = Color.GREEN
-		%Diff.label_settings.font_color = Color.GREEN
-	elif diff < 0.0:
-		%Diff.text = "-"
-		if diff < -1000:
-			%Diff.text = "- - -"
-		elif diff < -200:
-			%Diff.text = "- -"
-		%Diff.label_settings.outline_color = Color.RED
-		%Diff.label_settings.font_color = Color.RED
-	%Amount.text = SpaceUtil.format_int(amount)
+	if amount > 0:
+		should_be_active = true
+	if should_be_active:
+		show()
+		var diff = capital.capital_diff[capital_key]
+		if abs(diff) <= 0.1:
+			%Diff.text = ""
+		elif diff > 0.0:
+			%Diff.text = "+"
+			if diff > 1000:
+				%Diff.text = "+ + +"
+			elif diff > 200:
+				%Diff.text = "+ +"
+			%Diff.label_settings.outline_color = Color.GREEN
+			%Diff.label_settings.font_color = Color.GREEN
+		elif diff < 0.0:
+			%Diff.text = "-"
+			if diff < -1000:
+				%Diff.text = "- - -"
+			elif diff < -200:
+				%Diff.text = "- -"
+			%Diff.label_settings.outline_color = Color.RED
+			%Diff.label_settings.font_color = Color.RED
+		%Amount.text = SpaceUtil.format_int(amount)
+	else:
+		hide()
 
 
 func _on_timer_timeout() -> void:

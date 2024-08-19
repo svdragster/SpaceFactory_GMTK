@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cragjjsrk4gqt"
+path="res://.godot/imported/Oppressive Gloom.ogg-c2c126078fd586cc7f0475da040f3885.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Oppressive Gloom.ogg"
+dest_files=["res://.godot/imported/Oppressive Gloom.ogg-c2c126078fd586cc7f0475da040f3885.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

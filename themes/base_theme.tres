@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dg1ut6ns7mn0y"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dg1ut6ns7mn0y"]
 
 [ext_resource type="FontFile" uid="uid://cwjirjx2rh20s" path="res://assets/fonts/ChakraPetch-Medium.ttf" id="1_6kc4o"]
 
@@ -24,6 +24,9 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sukcx"]
+bg_color = Color(0.580392, 0.231373, 0.976471, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vq6a"]
 content_margin_left = 0.0
 content_margin_top = 0.0
@@ -47,4 +50,5 @@ default_font = ExtResource("1_6kc4o")
 default_font_size = 18
 Button/styles/hover = SubResource("StyleBoxFlat_4uxuo")
 Button/styles/normal = SubResource("StyleBoxFlat_8kqw1")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_sukcx")
 Panel/styles/panel = SubResource("StyleBoxFlat_1vq6a")

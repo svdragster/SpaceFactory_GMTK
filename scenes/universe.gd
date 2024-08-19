@@ -11,11 +11,14 @@ var zoom: float = 1.0
 @onready var space_objects_root: Node3D = $ObjectsZoom/Objects
 @onready var space_objects_zoom: Node3D = $ObjectsZoom
 
+var game_started := false
 var paused := true
 var interplanetary := false
 var interstellar := false
 
 var _old_speed: int = Globals.speed
+
+var play_time := 0.0
 
 func _ready() -> void:
 	for sun in get_tree().get_nodes_in_group("suns"):
@@ -35,11 +38,14 @@ func _ready() -> void:
 	
 
 func start() -> void:
+	game_started = true
 	unpause()
 	target = %StartPlanet
 	select_object(%StartPlanet)
+	get_node("PlayerData/Player1/QuestManager").start_first_quest()
 	
 func pause() -> void:
+	Globals.on_button_sound.emit()
 	paused = true
 	_old_speed = Globals.speed
 	Globals.speed = 0
@@ -48,8 +54,10 @@ func pause() -> void:
 	%CapitalUI.hide()
 	%QuestUI.hide()
 	%SpeedUI.hide()
+	%ControlsUI.hide()
 	
 func unpause() -> void:
+	Globals.on_button_sound.emit()
 	paused = false
 	Globals.speed = _old_speed
 	%MainMenu.hide()
@@ -57,9 +65,21 @@ func unpause() -> void:
 	%CapitalUI.show()
 	%QuestUI.show()
 	%SpeedUI.show()
+	%ControlsUI.show()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if game_started:
+		if Input.is_action_just_pressed("open_menu"):
+			if paused:
+				unpause()
+			else:
+				pause()
+		if not paused:
+			play_time += delta
+			if Input.is_action_just_pressed("hide_ui"):
+				%UI.visible = !%UI.visible
+		
 	if not paused:
 		space_objects_zoom.scale = lerp(space_objects_zoom.scale, Vector3(zoom, zoom, zoom), 10.0 * delta)
 		if not Globals.disable_rays:
@@ -128,9 +148,12 @@ func handle_clickables():
 		if collider is ClickableCoins:
 			collider.queue_free()
 			get_active_capital().capital["coins"] += 500
+			Globals.on_buy_sound.emit()
 		elif collider is ClickableOres:
 			collider.queue_free()
 			get_active_capital().capital["ore"] += 10
+			get_active_capital().capital["coins"] += 200
+			Globals.on_buy_sound.emit()
 
 func select_object(new_target: Node3D):
 	var old_target = target

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cl8humg6fc2we"
+path="res://.godot/imported/UI Message Appear 01.ogg-19ff9677c2baa02d5fa043705c14f40e.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/UI Message Appear 01.ogg"
+dest_files=["res://.godot/imported/UI Message Appear 01.ogg-19ff9677c2baa02d5fa043705c14f40e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

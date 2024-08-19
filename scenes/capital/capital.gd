@@ -3,23 +3,23 @@ extends Node
 
 var owned_space_objects: Array[Node3D] = []
 
-#var capital = {
-#	"coins": 6000.0,
-#	"population": 4999.0,
-#	"ore": 0.0,
-#	"resources": 0.0,
-#	"energy": 0.0,
-#	"dark_matter": 0.0,
-#}
-
 var capital = {
-	"coins": 1_000_000.0,
-	"population": 1_000_000.0,
-	"ore": 1_000_000.0,
-	"resources": 1_000_000.0,
-	"energy": 200_000.0,
+	"coins": 3000.0,
+	"population": 0.0,
+	"ore": 0.0,
+	"resources": 0.0,
+	"energy": 0.0,
 	"dark_matter": 0.0,
 }
+
+#var capital = {
+#	"coins": 1_000_000.0,
+#	"population": 1_000_000.0,
+#	"ore": 1_000_000.0,
+#	"resources": 1_000_000.0,
+#	"energy": 200_000.0,
+#	"dark_matter": 0.0,
+#}
 
 var capital_old: Dictionary
 

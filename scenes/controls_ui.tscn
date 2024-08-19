@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://cl0dpadt762ah"]
+
+[ext_resource type="Theme" uid="uid://dg1ut6ns7mn0y" path="res://themes/base_theme.tres" id="1_1hvbj"]
+[ext_resource type="Texture2D" uid="uid://23bfenoh6vcg" path="res://assets/mouse_right.png" id="1_d3vua"]
+[ext_resource type="Texture2D" uid="uid://bbao8j57ev2v1" path="res://assets/mouse_middle.png" id="1_que0b"]
+[ext_resource type="Script" path="res://scenes/controls_ui.gd" id="2_ovbqg"]
+
+[node name="ControlsUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_1hvbj")
+script = ExtResource("2_ovbqg")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(210, 170)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Controls"
+
+[node name="Rotate" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/Rotate"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+text = "Rotate Camera"
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/Rotate"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_d3vua")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Zoom" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/Zoom"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+text = "Zoom Camera"
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/Zoom"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_que0b")
+expand_mode = 3
+stretch_mode = 5

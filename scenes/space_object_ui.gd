@@ -44,11 +44,9 @@ func on_build(build_key: String) -> int:
 	var built_amount: int = result[1]
 	
 	if built_amount == 0:
-		# TODO: play sound that nothing was built
-		pass
+		Globals.on_error_sound.emit()
 	else:
-		# TODO: play build sound
-		pass
+		Globals.on_buy_sound.emit()
 		
 	return new_building_amount
 	

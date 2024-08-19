@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cmea0uyohtxap"]
+[gd_scene load_steps=25 format=3 uid="uid://cmea0uyohtxap"]
 
 [ext_resource type="PackedScene" uid="uid://dowq8sj2jigyj" path="res://scenes/my_camera.tscn" id="1_0ly52"]
 [ext_resource type="Script" path="res://scenes/universe.gd" id="1_hekgm"]
@@ -15,12 +15,15 @@
 [ext_resource type="PackedScene" uid="uid://ccqwylgpq5738" path="res://scenes/capital/capital_ui.tscn" id="9_qp22c"]
 [ext_resource type="PackedScene" uid="uid://du6erab885aww" path="res://scenes/capital/capital.tscn" id="10_2h6ng"]
 [ext_resource type="PackedScene" uid="uid://s5clp8u2etjp" path="res://scenes/build/sun_building_gui.tscn" id="10_07h0l"]
+[ext_resource type="PackedScene" uid="uid://buaf1jypdklgm" path="res://scenes/win_ui.tscn" id="10_in38t"]
 [ext_resource type="PackedScene" uid="uid://b770h2e1loeh" path="res://scenes/build/black_hole_building_gui.tscn" id="11_fj2w0"]
 [ext_resource type="PackedScene" uid="uid://blb258kp6u7xe" path="res://scenes/quest/quest_ui.tscn" id="14_7iumb"]
 [ext_resource type="Texture2D" uid="uid://ddu3uhyvp2l7w" path="res://assets/crane.svg" id="14_wkhqo"]
 [ext_resource type="PackedScene" uid="uid://cc4g5l57dmkgr" path="res://scenes/build/player_build_manager.tscn" id="15_kt4dx"]
 [ext_resource type="PackedScene" uid="uid://cm4kc05e8n3c5" path="res://scenes/quest/QuestManager.tscn" id="16_ggiom"]
 [ext_resource type="PackedScene" uid="uid://bnrrs3gvq7khm" path="res://scenes/speed_ui.tscn" id="16_yvu4i"]
+[ext_resource type="PackedScene" uid="uid://cl0dpadt762ah" path="res://scenes/controls_ui.tscn" id="19_txv0y"]
+[ext_resource type="PackedScene" uid="uid://b55g4mc5v8je5" path="res://scenes/music.tscn" id="22_58w7g"]
 
 [node name="Universe" type="Node3D"]
 physics_interpolation_mode = 2
@@ -91,6 +94,7 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -2.72536, 2.08307, 5.00
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -4.87102, 3.22, -0.394721)
 
 [node name="UI" type="Control" parent="."]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -205,6 +209,14 @@ anchor_right = 0.0
 grow_horizontal = 1
 grow_vertical = 0
 
+[node name="ControlsUI" parent="UI" instance=ExtResource("19_txv0y")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="WinUI" parent="UI" instance=ExtResource("10_in38t")]
+layout_mode = 1
+
 [node name="PlayerData" type="Node" parent="."]
 unique_name_in_owner = true
 
@@ -219,5 +231,7 @@ player = NodePath("..")
 quest_ui = NodePath("../../../UI/QuestUI")
 
 [node name="Capital" parent="PlayerData/Player1" instance=ExtResource("10_2h6ng")]
+
+[node name="Music" parent="." instance=ExtResource("22_58w7g")]
 
 [connection signal="pressed" from="UI/SpaceObjectUI/Panel/MarginContainer/HBoxContainer/BuildButton" to="UI/SpaceObjectUI" method="_on_build_button_pressed"]

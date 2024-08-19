@@ -19,8 +19,7 @@ func update():
 		var capital: Capital = get_node("/root/Universe").get_active_capital()
 		if capital.capital["dark_matter"] >= 100_000:
 			done = true
-			print("WIN!")
-			# TODO win screen
+			Globals.on_win.emit()
 
 func _process(delta: float) -> void:
 	update()

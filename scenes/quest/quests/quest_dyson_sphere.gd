@@ -5,7 +5,7 @@ extends Node
 @export var quest_manager: QuestManager
 
 var quest_name = "Dyson Sphere Program"
-var quest_desc = "Harvest the energy from the sun.\n\nClick on the sun to build in its orbit."
+var quest_desc = "Harvest the energy from the sun.\n\nClick on the sun to build in its orbit. However, you will need a lot of resources first."
 var done := false
 
 func start():
