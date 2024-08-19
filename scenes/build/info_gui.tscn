@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0bb6uxljugss"]
+[gd_scene load_steps=5 format=3 uid="uid://c0bb6uxljugss"]
 
 [ext_resource type="Script" path="res://scenes/build/info_gui.gd" id="1_3bs8k"]
+[ext_resource type="Theme" uid="uid://dg1ut6ns7mn0y" path="res://themes/base_theme.tres" id="1_37l4g"]
 [ext_resource type="PackedScene" uid="uid://cecwlol0eya1k" path="res://scenes/build/building_button.tscn" id="2_18atb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_onsiq"]
-font_size = 22
+font_size = 30
 
 [node name="InfoGui" type="Control"]
 layout_mode = 3
@@ -15,6 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("1_37l4g")
 script = ExtResource("1_3bs8k")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -34,7 +36,7 @@ size_flags_horizontal = 4
 alignment = 1
 
 [node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(200, 25)
+custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 
@@ -58,7 +60,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(30, 0)
+custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 text = "X
 "
@@ -109,26 +111,30 @@ size_flags_horizontal = 4
 
 [node name="One" type="Button" parent="VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(50, 40)
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "1x"
 
 [node name="Ten" type="Button" parent="VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(60, 40)
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "10x"
 
 [node name="Hundred" type="Button" parent="VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(70, 40)
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "100x"
 
 [node name="Thousand" type="Button" parent="VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(80, 40)
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "1000x"
 
 [node name="Timer" type="Timer" parent="."]

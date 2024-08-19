@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnrrs3gvq7khm"]
+[gd_scene load_steps=3 format=3 uid="uid://bnrrs3gvq7khm"]
 
+[ext_resource type="Theme" uid="uid://dg1ut6ns7mn0y" path="res://themes/base_theme.tres" id="1_08oua"]
 [ext_resource type="Script" path="res://scenes/speed_ui.gd" id="1_e1cre"]
 
 [node name="SpeedUI" type="Control"]
@@ -11,6 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 mouse_filter = 2
+theme = ExtResource("1_08oua")
 script = ExtResource("1_e1cre")
 
 [node name="Panel" type="Panel" parent="."]
@@ -18,15 +20,15 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -42.0
-offset_right = 180.0
+offset_top = -50.0
+offset_right = 246.0
 grow_vertical = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-theme_override_constants/margin_left = 5
+theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
@@ -36,20 +38,24 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "Speed "
 
 [node name="Speed1" type="Button" parent="Panel/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 text = "  >  "
 
 [node name="Speed2" type="Button" parent="Panel/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 text = " >> "
 
 [node name="Speed3" type="Button" parent="Panel/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 text = ">>>"
 

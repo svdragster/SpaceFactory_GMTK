@@ -5,7 +5,7 @@ extends Node
 @export var quest_manager: QuestManager
 
 var quest_name = "Factorio"
-var quest_desc = "Build a factory on a terrestial planet."
+var quest_desc = "Build a factory on a terrestial planet.\n\nBuild more mines or increase the speed instead of waiting. Time is money."
 var done := false
 
 func start():

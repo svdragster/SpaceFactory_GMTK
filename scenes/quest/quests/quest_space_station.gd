@@ -5,7 +5,7 @@ extends Node
 @export var quest_manager: QuestManager
 
 var quest_name = "Enter the Orbit"
-var quest_desc = "After growing your population, build a Space Station to reach other planets."
+var quest_desc = "After growing your population, build a Space Station to reach other planets.\n\nBuild more cities or increase the speed instead of waiting. Time is money."
 var done := false
 
 func start():

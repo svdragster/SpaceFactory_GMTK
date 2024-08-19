@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://b43tj14o86p54"]
+[gd_scene load_steps=5 format=3 uid="uid://b43tj14o86p54"]
 
 [ext_resource type="PackedScene" uid="uid://c0bb6uxljugss" path="res://scenes/build/info_gui.tscn" id="1_7prfs"]
+[ext_resource type="Texture2D" uid="uid://r4gmtclwbng3" path="res://assets/modern-city.svg" id="2_jnpy4"]
+[ext_resource type="Texture2D" uid="uid://blj8nwto41bdd" path="res://assets/factory.svg" id="3_4q1tb"]
+[ext_resource type="Texture2D" uid="uid://bk34qqjy3vwtn" path="res://assets/defense-satellite.svg" id="4_rt4fu"]
 
 [node name="TerrestialPlanetBuildingGui" type="Control"]
 layout_mode = 3
@@ -16,6 +19,11 @@ layout_mode = 1
 [node name="Button" parent="InfoGui/VBoxContainer/GridContainer/VContainer" index="0"]
 building_type = "city"
 
+[node name="TextureRect" parent="InfoGui/VBoxContainer/GridContainer/VContainer/Button/MarginContainer/VBoxContainer2/HBoxContainer" index="0"]
+texture = ExtResource("2_jnpy4")
+expand_mode = 2
+stretch_mode = 0
+
 [node name="Name" parent="InfoGui/VBoxContainer/GridContainer/VContainer/Button/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer" index="0"]
 text = "City"
 
@@ -25,11 +33,21 @@ text = "Allows a higher population which also pay some taxes"
 [node name="Button2" parent="InfoGui/VBoxContainer/GridContainer/VContainer" index="1"]
 building_type = "factory"
 
+[node name="TextureRect" parent="InfoGui/VBoxContainer/GridContainer/VContainer/Button2/MarginContainer/VBoxContainer2/HBoxContainer" index="0"]
+texture = ExtResource("3_4q1tb")
+expand_mode = 2
+stretch_mode = 0
+
 [node name="Desc" parent="InfoGui/VBoxContainer/GridContainer/VContainer/Button2/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer" index="1"]
 text = "Produces Resources from Ore"
 
 [node name="Button3" parent="InfoGui/VBoxContainer/GridContainer/VContainer" index="2"]
 building_type = "space_station"
+
+[node name="TextureRect" parent="InfoGui/VBoxContainer/GridContainer/VContainer/Button3/MarginContainer/VBoxContainer2/HBoxContainer" index="0"]
+texture = ExtResource("4_rt4fu")
+expand_mode = 2
+stretch_mode = 0
 
 [node name="Desc" parent="InfoGui/VBoxContainer/GridContainer/VContainer/Button3/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer" index="1"]
 text = "Allows rockets to travel to other planets"

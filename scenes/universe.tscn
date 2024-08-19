@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cmea0uyohtxap"]
+[gd_scene load_steps=22 format=3 uid="uid://cmea0uyohtxap"]
 
 [ext_resource type="PackedScene" uid="uid://dowq8sj2jigyj" path="res://scenes/my_camera.tscn" id="1_0ly52"]
 [ext_resource type="Script" path="res://scenes/universe.gd" id="1_hekgm"]
@@ -9,24 +9,25 @@
 [ext_resource type="PackedScene" uid="uid://b6h7nni4ml57e" path="res://scenes/planet/desert_planet.tscn" id="6_43jkt"]
 [ext_resource type="PackedScene" uid="uid://cxcqat7ok6jtu" path="res://scenes/build/desert_planet_building_gui.tscn" id="7_1p5ii"]
 [ext_resource type="Script" path="res://scenes/space_object_ui.gd" id="7_7ripd"]
+[ext_resource type="Theme" uid="uid://dg1ut6ns7mn0y" path="res://themes/base_theme.tres" id="8_rw28l"]
 [ext_resource type="PackedScene" uid="uid://b43tj14o86p54" path="res://scenes/build/terrestial_planet_building_gui.tscn" id="8_v467m"]
+[ext_resource type="PackedScene" uid="uid://bpqxovj78w7rp" path="res://scenes/MainMenu.tscn" id="9_lvon1"]
 [ext_resource type="PackedScene" uid="uid://ccqwylgpq5738" path="res://scenes/capital/capital_ui.tscn" id="9_qp22c"]
 [ext_resource type="PackedScene" uid="uid://du6erab885aww" path="res://scenes/capital/capital.tscn" id="10_2h6ng"]
 [ext_resource type="PackedScene" uid="uid://s5clp8u2etjp" path="res://scenes/build/sun_building_gui.tscn" id="10_07h0l"]
 [ext_resource type="PackedScene" uid="uid://b770h2e1loeh" path="res://scenes/build/black_hole_building_gui.tscn" id="11_fj2w0"]
 [ext_resource type="PackedScene" uid="uid://blb258kp6u7xe" path="res://scenes/quest/quest_ui.tscn" id="14_7iumb"]
+[ext_resource type="Texture2D" uid="uid://ddu3uhyvp2l7w" path="res://assets/crane.svg" id="14_wkhqo"]
 [ext_resource type="PackedScene" uid="uid://cc4g5l57dmkgr" path="res://scenes/build/player_build_manager.tscn" id="15_kt4dx"]
 [ext_resource type="PackedScene" uid="uid://cm4kc05e8n3c5" path="res://scenes/quest/QuestManager.tscn" id="16_ggiom"]
 [ext_resource type="PackedScene" uid="uid://bnrrs3gvq7khm" path="res://scenes/speed_ui.tscn" id="16_yvu4i"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_d8hb0"]
-size = Vector2(32, 32)
 
 [node name="Universe" type="Node3D"]
 physics_interpolation_mode = 2
 script = ExtResource("1_hekgm")
 
-[node name="MyCamera" parent="." instance=ExtResource("1_0ly52")]
+[node name="MyCamera" parent="." node_paths=PackedStringArray("universe") instance=ExtResource("1_0ly52")]
+universe = NodePath("..")
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("3_q01wm")]
 
@@ -34,13 +35,14 @@ script = ExtResource("1_hekgm")
 
 [node name="Objects" type="Node3D" parent="ObjectsZoom"]
 
-[node name="BlackHole" parent="ObjectsZoom/Objects" node_paths=PackedStringArray("capital") instance=ExtResource("1_ya0al")]
+[node name="BlackHole" parent="ObjectsZoom/Objects" instance=ExtResource("1_ya0al")]
+unique_name_in_owner = true
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-capital = NodePath("")
 
 [node name="StartSun" parent="ObjectsZoom/Objects/BlackHole" instance=ExtResource("3_upvk8")]
 unique_name_in_owner = true
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -2.29472, 0, 0)
+is_first_sun = true
 
 [node name="StartPlanet" parent="ObjectsZoom/Objects/BlackHole/StartSun" instance=ExtResource("4_fomw1")]
 unique_name_in_owner = true
@@ -95,9 +97,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("8_rw28l")
+
+[node name="MainMenu" parent="UI" node_paths=PackedStringArray("universe") instance=ExtResource("9_lvon1")]
+unique_name_in_owner = true
+layout_mode = 1
+universe = NodePath("../..")
 
 [node name="SpaceObjectUI" type="Control" parent="UI" node_paths=PackedStringArray("player")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -121,6 +130,11 @@ anchor_bottom = 0.5
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 
 [node name="SunPlanetBuildingGui" parent="UI/SpaceObjectUI" instance=ExtResource("10_07h0l")]
 unique_name_in_owner = true
@@ -132,35 +146,58 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/SpaceObjectUI"]
+[node name="Panel" type="Panel" parent="UI/SpaceObjectUI"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -55.0
-offset_top = -60.0
-offset_right = 55.0
+offset_left = -75.5
+offset_top = -77.0
+offset_right = 75.5
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="BuildButton" type="Button" parent="UI/SpaceObjectUI/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/SpaceObjectUI/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/SpaceObjectUI/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="BuildButton" type="Button" parent="UI/SpaceObjectUI/Panel/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(110, 60)
 layout_mode = 2
+size_flags_horizontal = 3
 tooltip_text = "Opens the build menu"
+theme_override_font_sizes/font_size = 35
 text = "Build"
-icon = SubResource("PlaceholderTexture2D_d8hb0")
+icon = ExtResource("14_wkhqo")
+expand_icon = true
 
 [node name="CapitalUI" parent="UI" node_paths=PackedStringArray("universe") instance=ExtResource("9_qp22c")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 universe = NodePath("../..")
 
 [node name="QuestUI" parent="UI" instance=ExtResource("14_7iumb")]
+unique_name_in_owner = true
+visible = false
 layout_mode = 1
 
 [node name="SpeedUI" parent="UI" instance=ExtResource("16_yvu4i")]
+unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -183,4 +220,4 @@ quest_ui = NodePath("../../../UI/QuestUI")
 
 [node name="Capital" parent="PlayerData/Player1" instance=ExtResource("10_2h6ng")]
 
-[connection signal="pressed" from="UI/SpaceObjectUI/HBoxContainer/BuildButton" to="UI/SpaceObjectUI" method="_on_build_button_pressed"]
+[connection signal="pressed" from="UI/SpaceObjectUI/Panel/MarginContainer/HBoxContainer/BuildButton" to="UI/SpaceObjectUI" method="_on_build_button_pressed"]

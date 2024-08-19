@@ -11,14 +11,13 @@ var zoom: float = 1.0
 @onready var space_objects_root: Node3D = $ObjectsZoom/Objects
 @onready var space_objects_zoom: Node3D = $ObjectsZoom
 
-
+var paused := true
 var interplanetary := false
 var interstellar := false
 
-# Called when the node enters the scene tree for the first time.
+var _old_speed: int = Globals.speed
+
 func _ready() -> void:
-	target = %StartPlanet
-	
 	for sun in get_tree().get_nodes_in_group("suns"):
 		sun.capital = $PlayerData/Player1/Capital
 		sun.on_deselect()
@@ -30,16 +29,42 @@ func _ready() -> void:
 	for p in %StartSun.get_children():
 		if p is Planet:
 			p.create_collision()
-			
-	select_object(%StartPlanet)
+	
+	zoom = 0.3
+	space_objects_zoom.scale = Vector3(zoom, zoom, zoom)
+	
 
+func start() -> void:
+	unpause()
+	target = %StartPlanet
+	select_object(%StartPlanet)
+	
+func pause() -> void:
+	paused = true
+	_old_speed = Globals.speed
+	Globals.speed = 0
+	%MainMenu.show()
+	%SpaceObjectUI.hide()
+	%CapitalUI.hide()
+	%QuestUI.hide()
+	%SpeedUI.hide()
+	
+func unpause() -> void:
+	paused = false
+	Globals.speed = _old_speed
+	%MainMenu.hide()
+	%SpaceObjectUI.show()
+	%CapitalUI.show()
+	%QuestUI.show()
+	%SpeedUI.show()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	space_objects_zoom.scale = lerp(space_objects_zoom.scale, Vector3(zoom, zoom, zoom), 10.0 * delta)
-	if not Globals.disable_rays:
-		handle_mouse()
-	focus_target()
+	if not paused:
+		space_objects_zoom.scale = lerp(space_objects_zoom.scale, Vector3(zoom, zoom, zoom), 10.0 * delta)
+		if not Globals.disable_rays:
+			handle_mouse()
+		focus_target()
 
 func handle_mouse():
 	if Input.is_action_just_pressed("select"):
@@ -121,7 +146,7 @@ func select_object(new_target: Node3D):
 	elif target.space_type == "sun":
 		zoom = 2
 	elif target.space_type == "black_hole":
-		zoom = 0.5
+		zoom = 0.42
 	
 	%SpaceObjectUI.selected_space_object = target
 	%SpaceObjectUI.update_build_menu()
@@ -139,6 +164,8 @@ func calc_zoom_factor() -> float:
 	return pow(zoom, 1.2)
 
 func _input(event):
+	if paused:
+		return
 	if event is InputEventMouseButton:
 		var camera_zoom_factor: float = calc_zoom_factor()
 		if event.is_pressed():

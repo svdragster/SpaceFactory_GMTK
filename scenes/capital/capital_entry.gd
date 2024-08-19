@@ -3,8 +3,10 @@ extends Control
 
 @export var universe: Universe
 @export var capital_key: String
+@export var icon: Texture2D
 
 func _ready() -> void:
+	%Icon.texture = icon
 	%Name.text = BuildingsSingleton.mappings[capital_key]
 	%Diff.label_settings = %Diff.label_settings.duplicate(true)
 	Globals.on_built_event.connect(func(p, u, v, w): update())

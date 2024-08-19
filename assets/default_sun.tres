@@ -1,0 +1,51 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://b15h8pyhiu1vp"]
+
+[ext_resource type="Shader" path="res://shaders/body.gdshader" id="1_r8e6m"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6n8to"]
+noise_type = 2
+seed = 3
+frequency = 0.066
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lml1a"]
+width = 256
+height = 256
+in_3d_space = true
+seamless = true
+noise = SubResource("FastNoiseLite_6n8to")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_s1lxu"]
+noise_type = 2
+seed = 3
+frequency = 0.066
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_myt6b"]
+width = 256
+height = 256
+in_3d_space = true
+seamless = true
+as_normal_map = true
+bump_strength = 1.0
+noise = SubResource("FastNoiseLite_s1lxu")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_r8e6m")
+shader_parameter/emit = false
+shader_parameter/color_1 = Color(0.583124, 0.28727, 0.579755, 1)
+shader_parameter/color_1_treshold = 0.452
+shader_parameter/color_1_roughness = 0.0
+shader_parameter/color_1_emit = true
+shader_parameter/color_2 = Color(0.331555, 0.0407115, 0.186707, 1)
+shader_parameter/color_2_treshold = 0.56
+shader_parameter/color_3 = Color(0.847221, 0.466021, 0.931619, 1)
+shader_parameter/color_3_treshold = 0.6
+shader_parameter/color_4 = Color(0.920623, 0.262467, 0.330462, 1)
+shader_parameter/color_4_treshold = 0.637
+shader_parameter/color_5 = Color(0.638705, 0.111932, 0.585808, 1)
+shader_parameter/color_5_treshold = 1.0
+shader_parameter/noise_gaseous = false
+shader_parameter/noise_gaseous_speed = 0.0025
+shader_parameter/noise_scale = 1.0
+shader_parameter/noise = SubResource("NoiseTexture2D_lml1a")
+shader_parameter/noise_normal = SubResource("NoiseTexture2D_myt6b")

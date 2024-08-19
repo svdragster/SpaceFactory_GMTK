@@ -1,5 +1,7 @@
 extends Node3D
 
+@export var universe: Universe
+
 @export_range(0.0, 2.0) var rotation_speed: float = PI/2
 
 @export_range(1.0, 20.0) var move_speed: float = 12.0
@@ -67,6 +69,8 @@ func move_camera_with_keyboard(delta):
 		self.translate(translation_with_delta)
 
 func _input(event):
+	if universe.paused:
+		return
 	#if Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
 	#	return
 	if Input.is_action_pressed("cam_rotate"):

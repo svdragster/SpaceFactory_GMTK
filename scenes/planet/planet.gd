@@ -57,7 +57,7 @@ func on_deselect():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$MeshInstance3D.rotate_y(0.1 * delta * Globals.speed)
+	$MeshInstance3D.rotate_y(0.01 * delta * Globals.speed)
 	
 	var _scale: Vector3 = _universe.space_objects_zoom.scale
 	%Aim.scale = _scaling_factor / _scale

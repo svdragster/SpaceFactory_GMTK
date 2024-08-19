@@ -1,13 +1,15 @@
 class_name BlackHole
 extends Node3D
 
+@onready var _universe: Universe = get_node("/root/Universe")
 @onready var build_manager: BuildManager = $BuildManager
+
+var _scaling_factor := Vector3(0.08, 0.08, 0.08)
 
 @export var capital: Capital
 
 var space_type := "black_hole"
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("space_objects")
 	add_to_group("black_holes")
@@ -29,6 +31,8 @@ func on_select():
 func on_deselect():
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if _universe.interstellar:
+		var scale: Vector3 = _universe.space_objects_zoom.scale
+		scale = _scaling_factor / scale
+		%Aim.scale = scale

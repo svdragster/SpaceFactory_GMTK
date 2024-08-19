@@ -28,6 +28,8 @@ const float triplanar_sharpness = 0.5;
 vec2 rotate_position(vec2 position) {
 	if (noise_gaseous) {
 		position = mod(position + TIME * 2.5 * noise_gaseous_speed / 10.0, 0.0);
+	} else {
+		position = mod(position + TIME * 2.5 * 0.01 / 10.0, 0.0);
 	}
 	return position;
 }

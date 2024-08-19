@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://s5clp8u2etjp"]
+[gd_scene load_steps=4 format=3 uid="uid://s5clp8u2etjp"]
 
 [ext_resource type="PackedScene" uid="uid://c0bb6uxljugss" path="res://scenes/build/info_gui.tscn" id="1_fttwx"]
+[ext_resource type="Texture2D" uid="uid://tl78nldgjkis" path="res://assets/spaceship.svg" id="2_ihsns"]
+[ext_resource type="Texture2D" uid="uid://ccbi6xcooqkkv" path="res://assets/solar-system.svg" id="3_102p3"]
 
 [node name="SunPlanetBuildingGui" type="Control"]
 layout_mode = 3
@@ -27,6 +29,11 @@ offset_bottom = 191.5
 [node name="Button" parent="InfoGui/VBoxContainer/GridContainer/VContainer" index="0"]
 building_type = "interstellar_travel"
 
+[node name="TextureRect" parent="InfoGui/VBoxContainer/GridContainer/VContainer/Button/MarginContainer/VBoxContainer2/HBoxContainer" index="0"]
+texture = ExtResource("2_ihsns")
+expand_mode = 2
+stretch_mode = 0
+
 [node name="Name" parent="InfoGui/VBoxContainer/GridContainer/VContainer/Button/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer" index="0"]
 text = "City"
 
@@ -35,6 +42,11 @@ text = "Allows travelling to other stars in the galaxy"
 
 [node name="Button2" parent="InfoGui/VBoxContainer/GridContainer/VContainer" index="1"]
 building_type = "dyson_sphere"
+
+[node name="TextureRect" parent="InfoGui/VBoxContainer/GridContainer/VContainer/Button2/MarginContainer/VBoxContainer2/HBoxContainer" index="0"]
+texture = ExtResource("3_102p3")
+expand_mode = 2
+stretch_mode = 0
 
 [node name="Desc" parent="InfoGui/VBoxContainer/GridContainer/VContainer/Button2/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer" index="1"]
 text = "Harvest energy from this star"

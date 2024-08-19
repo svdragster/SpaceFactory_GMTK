@@ -1,43 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccqwylgpq5738"]
+[gd_scene load_steps=9 format=3 uid="uid://ccqwylgpq5738"]
 
 [ext_resource type="PackedScene" uid="uid://m1o63052gmvf" path="res://scenes/capital/capital_entry.tscn" id="1_2nmds"]
 [ext_resource type="Script" path="res://scenes/capital/capital_ui.gd" id="1_4vwl8"]
+[ext_resource type="Texture2D" uid="uid://c2n1eoq28jrvb" path="res://assets/money-stack.svg" id="3_fcqka"]
+[ext_resource type="Texture2D" uid="uid://dstgxtbqvmq5l" path="res://assets/backup.svg" id="4_2iuug"]
+[ext_resource type="Texture2D" uid="uid://wir4rmrvia6d" path="res://assets/ore.svg" id="5_sukgj"]
+[ext_resource type="Texture2D" uid="uid://djj3lp7vxl62c" path="res://assets/cargo-crate.svg" id="6_sqcoo"]
+[ext_resource type="Texture2D" uid="uid://d0vduh3uno704" path="res://assets/power-lightning.svg" id="7_m2hgr"]
+[ext_resource type="Texture2D" uid="uid://dl8wh8bw26lvh" path="res://assets/materials-science.svg" id="8_7047g"]
 
 [node name="CapitalUI" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 mouse_filter = 2
 script = ExtResource("1_4vwl8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+offset_right = 350.0
+offset_bottom = 221.0
 
 [node name="Coins" parent="VBoxContainer" instance=ExtResource("1_2nmds")]
 layout_mode = 2
 capital_key = "coins"
+icon = ExtResource("3_fcqka")
 
 [node name="Population" parent="VBoxContainer" instance=ExtResource("1_2nmds")]
 layout_mode = 2
 capital_key = "population"
+icon = ExtResource("4_2iuug")
 
 [node name="Ore" parent="VBoxContainer" instance=ExtResource("1_2nmds")]
 layout_mode = 2
 capital_key = "ore"
+icon = ExtResource("5_sukgj")
 
 [node name="Resources" parent="VBoxContainer" instance=ExtResource("1_2nmds")]
 layout_mode = 2
 capital_key = "resources"
+icon = ExtResource("6_sqcoo")
 
 [node name="Energy" parent="VBoxContainer" instance=ExtResource("1_2nmds")]
 layout_mode = 2
 capital_key = "energy"
+icon = ExtResource("7_m2hgr")
 
 [node name="Dark Matter" parent="VBoxContainer" instance=ExtResource("1_2nmds")]
 layout_mode = 2
 capital_key = "dark_matter"
+icon = ExtResource("8_7047g")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cs2ml6fv4sx38"]
+[gd_scene load_steps=12 format=3 uid="uid://cs2ml6fv4sx38"]
 
 [ext_resource type="Script" path="res://scenes/black_hole.gd" id="1_k2mqj"]
 [ext_resource type="Shader" path="res://shaders/body.gdshader" id="1_xgnsf"]
 [ext_resource type="Script" path="res://scenes/build/build_manager.gd" id="3_3trb4"]
+[ext_resource type="Texture2D" uid="uid://b8n76tntmo4k2" path="res://assets/aim.png" id="4_g34jm"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_qkrqu"]
 noise_type = 2
@@ -41,7 +42,7 @@ material = SubResource("ShaderMaterial_ihet7")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wx4xx"]
 transparency = 1
 shading_mode = 0
-albedo_color = Color(0.169245, 0.169245, 0.169245, 0.258824)
+albedo_color = Color(0.550227, 0.1334, 0.58, 0.258824)
 disable_receive_shadows = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_ln4h7"]
@@ -68,3 +69,10 @@ script = ExtResource("3_3trb4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_tvi76")
+
+[node name="Aim" type="Sprite3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+modulate = Color(0.6232, 0.0328, 0.82, 0.262745)
+billboard = 1
+texture = ExtResource("4_g34jm")

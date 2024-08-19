@@ -11,10 +11,10 @@ var _old_buy_factor := Globals.buy_factor
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_register_buttons_recursively(self)
-	%One.add_theme_color_override("font_outline_color", Color.BLUE)
-	%Ten.add_theme_color_override("font_outline_color", Color.BLUE)
-	%Hundred.add_theme_color_override("font_outline_color", Color.BLUE)
-	%Thousand.add_theme_color_override("font_outline_color", Color.BLUE)
+	%One.add_theme_color_override("font_outline_color", Color.PURPLE)
+	%Ten.add_theme_color_override("font_outline_color", Color.PURPLE)
+	%Hundred.add_theme_color_override("font_outline_color", Color.PURPLE)
+	%Thousand.add_theme_color_override("font_outline_color", Color.PURPLE)
 	
 	Globals.on_object_select_event.connect(
 		func(player, space_object): 

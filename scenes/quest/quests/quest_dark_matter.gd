@@ -5,7 +5,7 @@ extends Node
 @export var quest_manager: QuestManager
 
 var quest_name = "Transcend Science"
-var quest_desc = "Reach 100,000 Dark Matter to win the game!"
+var quest_desc = "Reach 100,000 Dark Matter to win the game!\n\nClick on other stars to colonize them."
 var done := false
 
 func start():
