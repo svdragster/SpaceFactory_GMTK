@@ -28,7 +28,8 @@ static var all_buildings = {
 	},
 	"dark_matter_collector": {
 		"coins": 100_000_000,
-		"energy": 200_000,
+		"energy": 250_000,
+		"resources": 10_000_000,
 	}
 }
 
@@ -45,23 +46,25 @@ static var production = {
 		"ore": -5.0,
 		"resources": 1.0,
 		"coins": 100.0,
-		"population": -6.0,
+		"population": -10.0,
 	},
 	"space_station": {
-		"coins": -20.0,
+		"coins": -25.0,
 		"population": -1.0,
 	},
 	"dyson_sphere": {
 		"energy": 1.0,
 		"coins": -1000.0,
+		"resources": -500.0,
 	},
 	"interstellar_travel": {
-		"energy": -0.5,
-		"coins": -50.0,
+		"energy": -1.0,
+		"coins": -200.0,
 	},
 	"dark_matter_collector": {
 		"dark_matter": 1.0,
-		"energy": -100.0,
+		"energy": -1000.0,
+		"coins": -10_000.0,
 	}
 }
 
